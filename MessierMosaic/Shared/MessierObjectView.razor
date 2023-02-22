@@ -1,0 +1,49 @@
+﻿@using MessierMosaic.Models;
+@inject Blazored.LocalStorage.ISyncLocalStorageService localStorage
+
+<div class="card mb-2">
+    <label for="@($"filePicker{Object?.Messier}")">
+        <img class="card-img-top" src="@ImageDataURL" alt="Card image cap">
+    </label>
+    <div class="card-body">
+        <h5 class="card-title">@($"{Object?.Messier} - {Object?.Name}")</h5>
+        <p class="card-text">@Object?.Object</p>
+        <InputFile id="@($"filePicker{Object?.Messier}")" OnChange="@SingleUpload" style="display:none;" title="Upload Image" accept=".jpg,.png,.jpeg" />
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public MessierObject? Object { get; set; }
+
+    public string ImageDataURL { get; set; } = "images/missing.png";
+
+    private async Task SingleUpload(InputFileChangeEventArgs e)
+    {
+
+        var imagePreview = await e.File.RequestImageFileAsync(e.File.ContentType, 300, 300);
+        var ms = new MemoryStream();
+        await imagePreview.OpenReadStream(10 * 1024 * 1024).CopyToAsync(ms);
+        var imageBytes = ms.ToArray();
+        var imagesrc = Convert.ToBase64String(imageBytes);
+        ImageDataURL = string.Format($"data:{e.File.ContentType};base64,{imagesrc}");
+        localStorage.SetItem($"{Object?.Messier}preview", ImageDataURL);
+        Console.WriteLine($"Saved {ImageDataURL.Length} bytes preview");
+        StateHasChanged();
+        var ms2 = new MemoryStream();
+        var image = await e.File.RequestImageFileAsync(e.File.ContentType, 1024, 1024);
+        await image.OpenReadStream(10 * 1024 * 1024).CopyToAsync(ms2);
+        localStorage.SetItem<byte[]>($"{Object?.Messier}", ms2.ToArray());
+        Console.WriteLine($"Saved {ms2.Length} bytes actual image");
+    }
+
+    protected override void OnParametersSet()
+    {
+        if (Object == null) return;
+        var key = $"{Object?.Messier}preview";
+        if (localStorage.ContainKey(key))
+        {
+            ImageDataURL = localStorage.GetItem<string>(key);
+        }
+    }
+}

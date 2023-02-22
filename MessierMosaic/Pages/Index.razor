@@ -1,0 +1,50 @@
+﻿@page "/"
+@using MessierMosaic.Models;
+@inject HttpClient Http
+
+<PageTitle>Index</PageTitle>
+
+<h2>Messier Mosaic Creator</h2>
+@{
+    var objects = 110;
+    var cols = 5;
+    var rows = Math.Floor((double)(objects / cols));
+    var counter = 1;
+}
+
+<div class="container">
+    @for (var r = 0; r < rows; r++)
+    {
+        <div class="row">
+            @for (var i = 0; i < cols; i++)
+            {
+                <div class="col-md">
+                <MessierObjectView Object="GetObject(counter)"></MessierObjectView>
+                </div>
+                counter += 1;
+            }
+        </div>
+    }
+</div>
+
+@code {
+    public MessierObject[] MessierObjects = new MessierObject[111];
+
+    public MessierObject? GetObject(int id)
+    {
+        try
+        {
+           return MessierObjects.First(m => m.Messier == $"M{id}");
+        } catch(Exception ex)
+        {
+            Console.WriteLine($"Unable to get messier {id}");
+            return null;
+        }
+    }
+
+    protected async override Task OnInitializedAsync()
+    {
+        MessierObjects = await Http.GetFromJsonAsync<MessierObject[]>("data/messier.json");
+        StateHasChanged();
+    }
+}
