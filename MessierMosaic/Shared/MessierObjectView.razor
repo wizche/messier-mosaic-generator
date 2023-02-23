@@ -1,5 +1,7 @@
-﻿@using MessierMosaic.Models;
-@inject Blazored.LocalStorage.ISyncLocalStorageService localStorage
+﻿@using MessierMosaic.Db;
+@using MessierMosaic.ViewModels;
+@using TG.Blazor.IndexedDB;
+@inject IndexedDBManager DbManager
 
 <div class="card mb-2">
     <label for="@($"filePicker{Object?.Messier}")">
@@ -14,7 +16,9 @@
 
 @code {
     [Parameter]
-    public MessierObject? Object { get; set; }
+    public long? ObjectId { get; set; } = 0;
+    [Parameter]
+    public MessierObject? Object { get; set; } = null;
 
     public string ImageDataURL { get; set; } = "images/missing.png";
 
@@ -24,26 +28,63 @@
         var imagePreview = await e.File.RequestImageFileAsync(e.File.ContentType, 300, 300);
         var ms = new MemoryStream();
         await imagePreview.OpenReadStream(10 * 1024 * 1024).CopyToAsync(ms);
-        var imageBytes = ms.ToArray();
-        var imagesrc = Convert.ToBase64String(imageBytes);
+        var imagePreviewBytes = ms.ToArray();
+        var imagesrc = Convert.ToBase64String(imagePreviewBytes);
         ImageDataURL = string.Format($"data:{e.File.ContentType};base64,{imagesrc}");
-        localStorage.SetItem($"{Object?.Messier}preview", ImageDataURL);
         Console.WriteLine($"Saved {ImageDataURL.Length} bytes preview");
         StateHasChanged();
         var ms2 = new MemoryStream();
         var image = await e.File.RequestImageFileAsync(e.File.ContentType, 1024, 1024);
         await image.OpenReadStream(10 * 1024 * 1024).CopyToAsync(ms2);
-        localStorage.SetItem<byte[]>($"{Object?.Messier}", ms2.ToArray());
-        Console.WriteLine($"Saved {ms2.Length} bytes actual image");
+        var imageBytes = ms2.ToArray();
+        Console.WriteLine($"Saved {ms2.Length} bytes actual image"); 
+
+        var current = await DbManager.GetRecordById<long, MessierObjectEntry>(DbConfig.StoreName, ObjectId ?? 0);
+        if (current == null)
+        {
+            Console.WriteLine($"Db Entry for object {ObjectId} missing, creating!");
+            var newRecord = new StoreRecord<MessierObjectEntry>
+                {
+                    Storename = DbConfig.StoreName,
+                    Data = new MessierObjectEntry
+                    {
+                        Id = ObjectId,
+                        Image = imageBytes,
+                        Preview = imagePreviewBytes,
+                        ContentType = e.File.ContentType
+                    }
+                };
+            await DbManager.AddRecord(newRecord);
+        } else
+        {
+            Console.WriteLine($"Db entry exists for object {ObjectId}, updating!");
+            current.Image = imageBytes;
+            current.Preview = imagePreviewBytes;
+            current.ContentType = e.File.ContentType;
+
+            var updatedRecord = new StoreRecord<MessierObjectEntry>
+            {
+                Storename = DbConfig.StoreName,
+                Data = current
+            };
+            await DbManager.UpdateRecord(updatedRecord);
+        }
+
     }
 
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
-        if (Object == null) return;
-        var key = $"{Object?.Messier}preview";
-        if (localStorage.ContainKey(key))
+        if (Object == null || !ObjectId.HasValue) return;
+        var current = await DbManager.GetRecordById<long, MessierObjectEntry>(DbConfig.StoreName, ObjectId.Value);
+        if (current == null)
         {
-            ImageDataURL = localStorage.GetItem<string>(key);
+            Console.WriteLine($"Record for object {ObjectId} doesnt exists yet!");
+            return;
+        }
+        if (current.Preview != null)
+        {
+            var imagesrc = Convert.ToBase64String(current.Preview);
+            ImageDataURL = string.Format($"data:{current.ContentType};base64,{imagesrc}");
         }
     }
 }

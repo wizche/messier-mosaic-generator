@@ -99,3 +99,13 @@ a, .btn-link {
     .loading-progress-text:after {
         content: var(--blazor-load-percentage-text, "Loading");
     }
+
+.top-row {
+    color: white;
+    background-image: linear-gradient(90deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

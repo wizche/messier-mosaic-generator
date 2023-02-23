@@ -1,10 +1,12 @@
 ﻿@page "/"
-@using MessierMosaic.Models;
+@using MessierMosaic.Db;
+@using MessierMosaic.ViewModels;
+@using TG.Blazor.IndexedDB;
 @inject HttpClient Http
+@inject IndexedDBManager DbManager
 
 <PageTitle>Index</PageTitle>
 
-<h2>Messier Mosaic Creator</h2>
 @{
     var objects = 110;
     var cols = 5;
@@ -13,13 +15,16 @@
 }
 
 <div class="container">
+    <h5>
+        Uploaded @Uploaded / 110
+    </h5>
     @for (var r = 0; r < rows; r++)
     {
         <div class="row">
             @for (var i = 0; i < cols; i++)
             {
                 <div class="col-md">
-                <MessierObjectView Object="GetObject(counter)"></MessierObjectView>
+                    <MessierObjectView ObjectId="@counter" Object="GetObject(counter)"></MessierObjectView>
                 </div>
                 counter += 1;
             }
@@ -29,15 +34,15 @@
 
 @code {
     public MessierObject[] MessierObjects = new MessierObject[111];
-
+    public int Uploaded = 0;
     public MessierObject? GetObject(int id)
     {
         try
         {
-           return MessierObjects.First(m => m.Messier == $"M{id}");
+            return MessierObjects.First(m => m.Messier == $"M{id}");
         } catch(Exception ex)
         {
-            Console.WriteLine($"Unable to get messier {id}");
+            Console.WriteLine($"Unable to get messier {id}: {ex.Message}");
             return null;
         }
     }
@@ -45,6 +50,8 @@
     protected async override Task OnInitializedAsync()
     {
         MessierObjects = await Http.GetFromJsonAsync<MessierObject[]>("data/messier.json");
+        var results = await DbManager.GetRecords<MessierObjectEntry>(DbConfig.StoreName);
+        Uploaded = results.Count();
         StateHasChanged();
     }
 }
