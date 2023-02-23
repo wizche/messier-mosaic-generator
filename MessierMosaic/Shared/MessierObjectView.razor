@@ -19,6 +19,10 @@
     public long? ObjectId { get; set; } = 0;
     [Parameter]
     public MessierObject? Object { get; set; } = null;
+    [Parameter]
+    public EventCallback<long?> OnItemAdded { get; set; }
+    [Parameter]
+    public EventCallback<long?> OnItemDeleted { get; set; }
 
     public string ImageDataURL { get; set; } = "images/missing.png";
 
@@ -55,6 +59,7 @@
                     }
                 };
             await DbManager.AddRecord(newRecord);
+            await OnItemAdded.InvokeAsync(ObjectId);
         } else
         {
             Console.WriteLine($"Db entry exists for object {ObjectId}, updating!");
@@ -76,15 +81,8 @@
     {
         if (Object == null || !ObjectId.HasValue) return;
         var current = await DbManager.GetRecordById<long, MessierObjectEntry>(DbConfig.StoreName, ObjectId.Value);
-        if (current == null)
-        {
-            Console.WriteLine($"Record for object {ObjectId} doesnt exists yet!");
-            return;
-        }
-        if (current.Preview != null)
-        {
-            var imagesrc = Convert.ToBase64String(current.Preview);
-            ImageDataURL = string.Format($"data:{current.ContentType};base64,{imagesrc}");
-        }
+        if (current == null) return;
+        var imagesrc = Convert.ToBase64String(current.Preview);
+        ImageDataURL = string.Format($"data:{current.ContentType};base64,{imagesrc}");
     }
 }

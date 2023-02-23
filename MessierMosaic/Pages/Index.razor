@@ -1,6 +1,11 @@
 ﻿@page "/"
 @using MessierMosaic.Db;
 @using MessierMosaic.ViewModels;
+@using SixLabors.ImageSharp;
+@using SixLabors.ImageSharp.Formats.Jpeg;
+@using SixLabors.ImageSharp.PixelFormats;
+@using SixLabors.ImageSharp.Processing;
+@using System.Diagnostics;
 @using TG.Blazor.IndexedDB;
 @inject HttpClient Http
 @inject IndexedDBManager DbManager
@@ -15,16 +20,27 @@
 }
 
 <div class="container">
-    <h5>
-        Uploaded @Uploaded / 110
-    </h5>
+    <img src="@PreviewGeneratedImageSrc" alt="preview" />
+    <div class="d-flex justify-content-between mb-2">
+        <div>
+            <h5>Uploaded @Uploaded / 110</h5>
+        </div>
+        <div>
+            <button @onclick="GenerateImage" type="button" class="btn btn-primary">Generate</button>
+        </div>
+    </div>
     @for (var r = 0; r < rows; r++)
     {
         <div class="row">
             @for (var i = 0; i < cols; i++)
             {
                 <div class="col-md">
-                    <MessierObjectView ObjectId="@counter" Object="GetObject(counter)"></MessierObjectView>
+                    <MessierObjectView 
+                        ObjectId="@counter" 
+                        Object="GetObject(counter)"
+                        OnItemAdded="ItemAdded"
+                        OnItemDeleted="ItemDeleted">
+                    </MessierObjectView>
                 </div>
                 counter += 1;
             }
@@ -35,6 +51,8 @@
 @code {
     public MessierObject[] MessierObjects = new MessierObject[111];
     public int Uploaded = 0;
+    public string PreviewGeneratedImageSrc { get; set; }
+
     public MessierObject? GetObject(int id)
     {
         try
@@ -53,5 +71,49 @@
         var results = await DbManager.GetRecords<MessierObjectEntry>(DbConfig.StoreName);
         Uploaded = results.Count();
         StateHasChanged();
+    }
+
+    public async void GenerateImage()
+    {
+        var results = await DbManager.GetRecords<MessierObjectEntry>(DbConfig.StoreName);
+        if (results.Count < 2) return;
+        var obj1 = results[0];
+        var obj2 = results[1];
+
+        var stopWatch = new Stopwatch();
+        stopWatch.Start();
+        using (Image<Rgba32> img1 = Image.Load<Rgba32>(obj1.Image))
+        using (Image<Rgba32> img2 = Image.Load<Rgba32>(obj2.Image))
+        using (Image<Rgba32> outputImage = new Image<Rgba32>(600, 300))
+        {
+            Console.WriteLine($"Image loaded in {stopWatch.ElapsedMilliseconds} ms");
+            stopWatch.Restart();
+            img1.Mutate(o => o.Resize(new Size(300, 300)));
+            Console.WriteLine($"Image 1 resized in {stopWatch.ElapsedMilliseconds} ms");
+            stopWatch.Restart();
+            img2.Mutate(o => o.Resize(new Size(300, 300)));
+            Console.WriteLine($"Image 2 resized in {stopWatch.ElapsedMilliseconds} ms");
+            stopWatch.Restart();
+            // draw the images side by side to the final one
+            outputImage.Mutate(o => o
+                .DrawImage(img1, new Point(0, 0), 1f)
+                .DrawImage(img2, new Point(300, 0), 1f)
+            );
+            Console.WriteLine($"Image merged together in {stopWatch.ElapsedMilliseconds} ms");
+            stopWatch.Restart();
+            PreviewGeneratedImageSrc = outputImage.ToBase64String(JpegFormat.Instance);
+            Console.WriteLine($"Generated image of {PreviewGeneratedImageSrc.Length} bytes  in {stopWatch.ElapsedMilliseconds} ms");
+            stopWatch.Stop();
+        }
+    }
+
+    public void ItemAdded(long? id)
+    {
+        Uploaded += 1;
+    }
+
+    public void ItemDeleted(long? id)
+    {
+        Uploaded -= 1;
     }
 }
