@@ -1,0 +1,107 @@
+﻿@using System.Diagnostics;
+@using MessierMosaic.Db;
+@using MosaicLibrary;
+@using TG.Blazor.IndexedDB;
+@inject IndexedDBManager DbManager
+@inject MosaicService MosaicService
+
+<div class="row">
+    <form>
+        <div class="form-group">
+            <label for="inputImageSize">Width/Height:</label>
+            <input type="number" @onchange="OnSizeChanged" value="@ImageSize" class="form-control" id="inputImageSize" aria-describedby="emailHelp" placeholder="100 px">
+            <small id="imageSizeHelp" class="form-text text-muted">Enter the desired width/height in pixels</small>
+        </div>
+        <div class="form-group">
+            <label for="inputColumnsCount">Columns?</label>
+            <select value="@ColumnsCount" class="form-control" id="inputColumnsCount" @onchange="ColumnsChanged">
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+            </select>
+        </div>
+        @if(ImageWidth > 0 && ImageHeight > 0){
+            <div class="form-group">
+                Expected final image size: @ImageWidth px x @ImageHeight px (@ColumnsCount cols x @RowCounts rows)
+                
+            </div>
+        }
+        <button @onclick="GenerateImage" type="button" class="btn btn-primary mt-2" disabled="@IsGenerating">
+            @if (IsGenerating)
+            {
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span class="sr-only">Generating...</span>
+            } else
+            {
+                <span>Generate</span>
+            }
+        </button>
+    </form>
+</div>
+<hr/>
+<div class="row">
+    <img src="@PreviewGeneratedImageSrc" alt="preview" />
+</div>
+
+@code {
+    public int ImageSize = 100;
+    public int ColumnsCount = 5;
+    public int RowCounts = 0;
+    public int ImageWidth = 0;
+    public int ImageHeight = 0;
+    public bool IsGenerating = false;
+    public string PreviewGeneratedImageSrc { get; set; } = string.Empty;
+
+    public void RecomputeImageSize()
+    {
+        if(ImageSize > 0 && ColumnsCount > 0){
+            RowCounts = (int)Math.Floor((double)110.0 / ColumnsCount);
+            ImageWidth = ImageSize * ColumnsCount;
+            ImageHeight = ImageSize * RowCounts;
+        }
+        StateHasChanged();
+    }
+
+    public void OnSizeChanged(ChangeEventArgs changeEvent)
+    {
+        var succeeed = int.TryParse((string)changeEvent.Value, out ImageSize);
+        if (!succeeed)
+        {
+            Console.WriteLine($"Failed to parse size {(string)changeEvent.Value}");
+        }
+        RecomputeImageSize();
+    }
+    public void ColumnsChanged(ChangeEventArgs changeEvent)
+    {
+        var succeeed = int.TryParse((string)changeEvent.Value, out ColumnsCount);
+        if (!succeeed)
+        {
+            Console.WriteLine($"Failed to parse columns count {(string)changeEvent.Value}");
+        }
+        RecomputeImageSize();
+    }
+
+    public async void GenerateImage()
+    {
+        IsGenerating = true;
+        StateHasChanged();
+        var results = await DbManager.GetRecords<MessierObjectEntry>(DbConfig.StoreName);
+        if (results.Count < 2) return;
+        var obj1 = results[0];
+        var obj2 = results[1];
+        PreviewGeneratedImageSrc = MosaicService.GenerateAsBase64(new List<byte[]> { obj1.Image, obj2.Image }, ImageSize, ColumnsCount);
+        IsGenerating = false;
+        StateHasChanged();
+    }
+
+    protected override void OnInitialized()
+    {
+        RecomputeImageSize();
+    }
+
+}

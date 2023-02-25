@@ -4,11 +4,27 @@ namespace MessierMosaic.ViewModels
 {
     public class MessierObject
     {
-        [JsonPropertyName("messier")]
-        public string Messier { get; set; } = string.Empty;
-        [JsonPropertyName("objet")]
-        public string Object { get; set; } = string.Empty;
-        [JsonPropertyName("english_name_nom_en_anglais")]
+        [JsonPropertyName("key")]
         public string Name { get; set; } = string.Empty;
+        [JsonPropertyName("common_name")]
+        public string CommonName { get; set; } = string.Empty;
+        [JsonPropertyName("constellation")]
+        public string Constellation { get; set; } = string.Empty;
+        [JsonPropertyName("type")]
+        public string Type { get; set; } = string.Empty;
+
+        [JsonPropertyName("picture_url")]
+        public string PictureUrl { get; set; } = string.Empty;
+
+        public string GetTitle()
+        {
+            var title = this.Name;
+            if(CommonName != string.Empty)
+            {
+                title += " - ";
+                title += CommonName;
+            }
+            return title;
+        }
     }
 }

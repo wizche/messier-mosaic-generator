@@ -1,16 +1,25 @@
 ﻿@using MessierMosaic.Db;
 @using MessierMosaic.ViewModels;
+@using MosaicLibrary;
 @using TG.Blazor.IndexedDB;
 @inject IndexedDBManager DbManager
+@inject MosaicService MosaicService
 
 <div class="card mb-2">
-    <label for="@($"filePicker{Object?.Messier}")">
+    <label for="@($"filePicker{Object?.Name}")">
         <img class="card-img-top" src="@ImageDataURL" alt="Card image cap">
     </label>
     <div class="card-body">
-        <h5 class="card-title">@($"{Object?.Messier} - {Object?.Name}")</h5>
-        <p class="card-text">@Object?.Object</p>
-        <InputFile id="@($"filePicker{Object?.Messier}")" OnChange="@SingleUpload" style="display:none;" title="Upload Image" accept=".jpg,.png,.jpeg" />
+        <h5 class="card-title">@($"{Object?.GetTitle()}")</h5>
+        <p class="card-text small">
+            Constellation: @Object?.Constellation<br/>
+            Type: @Object?.Type
+            @if (Loaded)
+            {
+                <button @onclick="Delete"><span class="oi oi-trash"></span></button>                
+            }
+            </p>
+        <InputFile id="@($"filePicker{Object?.Name}")" OnChange="@SingleUpload" style="display:none;" title="Upload Image" accept=".jpg,.png,.jpeg" />
     </div>
 </div>
 
@@ -24,15 +33,25 @@
     [Parameter]
     public EventCallback<long?> OnItemDeleted { get; set; }
 
+    public bool Loaded { get; set; } = false;
+
     public string ImageDataURL { get; set; } = "images/missing.png";
+
+    public async void Delete()
+    {
+        Loaded = false;
+        ImageDataURL = Object?.PictureUrl;
+        await DbManager.DeleteRecord(DbConfig.StoreName, ObjectId);
+    }
 
     private async Task SingleUpload(InputFileChangeEventArgs e)
     {
-
         var imagePreview = await e.File.RequestImageFileAsync(e.File.ContentType, 300, 300);
         var ms = new MemoryStream();
         await imagePreview.OpenReadStream(10 * 1024 * 1024).CopyToAsync(ms);
         var imagePreviewBytes = ms.ToArray();
+        Console.WriteLine($"Generating preview");
+        imagePreviewBytes = MosaicService.GeneratePreview(imagePreviewBytes, $"{Object.Name} - {Object.Constellation}");
         var imagesrc = Convert.ToBase64String(imagePreviewBytes);
         ImageDataURL = string.Format($"data:{e.File.ContentType};base64,{imagesrc}");
         Console.WriteLine($"Saved {ImageDataURL.Length} bytes preview");
@@ -74,15 +93,18 @@
             };
             await DbManager.UpdateRecord(updatedRecord);
         }
-
     }
 
     protected override async Task OnParametersSetAsync()
     {
         if (Object == null || !ObjectId.HasValue) return;
         var current = await DbManager.GetRecordById<long, MessierObjectEntry>(DbConfig.StoreName, ObjectId.Value);
-        if (current == null) return;
-        var imagesrc = Convert.ToBase64String(current.Preview);
-        ImageDataURL = string.Format($"data:{current.ContentType};base64,{imagesrc}");
+        if (current == null) {
+            ImageDataURL = Object.PictureUrl;
+        } else {
+            var imagesrc = Convert.ToBase64String(current.Preview);
+            ImageDataURL = string.Format($"data:{current.ContentType};base64,{imagesrc}");
+            Loaded = true;
+        }
     }
 }

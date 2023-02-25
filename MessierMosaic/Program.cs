@@ -1,14 +1,26 @@
+using Blazored.Modal;
 using MessierMosaic;
 using MessierMosaic.Db;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using MosaicLibrary;
 using TG.Blazor.IndexedDB;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+var httpClient = new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) };
+builder.Services.AddSingleton(sp => httpClient);
+builder.Services.AddBlazoredModal();
+
+var stream = await httpClient.GetStreamAsync("/fonts/roboto.ttf");
+
+builder.Services.AddScoped<MosaicService>(s =>
+{
+    var ms = new MosaicService(stream);
+    return ms;
+});
 
 builder.Services.AddIndexedDB(dbStore =>
 {
