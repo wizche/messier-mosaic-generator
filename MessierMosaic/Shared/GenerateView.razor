@@ -10,10 +10,10 @@
         <div class="form-group">
             <label for="inputImageSize">Width/Height:</label>
             <input type="number" @onchange="OnSizeChanged" value="@ImageSize" class="form-control" id="inputImageSize" aria-describedby="emailHelp" placeholder="100 px">
-            <small id="imageSizeHelp" class="form-text text-muted">Enter the desired width/height in pixels</small>
+            <small id="imageSizeHelp" class="form-text text-muted">Enter the desired width/height in pixels (the aspect ratio will be squared)</small>
         </div>
         <div class="form-group">
-            <label for="inputColumnsCount">Columns?</label>
+            <label for="inputColumnsCount">Columns</label>
             <select value="@ColumnsCount" class="form-control" id="inputColumnsCount" @onchange="ColumnsChanged">
                 <option>4</option>
                 <option>5</option>
@@ -24,13 +24,11 @@
                 <option>10</option>
                 <option>11</option>
             </select>
+            @if (ImageWidth > 0 && ImageHeight > 0)
+            {
+                <small id="inputColumnsCountHelp" class="form-text text-muted">Expected final image size: @ImageWidth px x @ImageHeight px (@ColumnsCount cols x @RowCounts rows)</small>
+            }
         </div>
-        @if(ImageWidth > 0 && ImageHeight > 0){
-            <div class="form-group">
-                Expected final image size: @ImageWidth px x @ImageHeight px (@ColumnsCount cols x @RowCounts rows)
-                
-            </div>
-        }
         <button @onclick="GenerateImage" type="button" class="btn btn-primary mt-2" disabled="@IsGenerating">
             @if (IsGenerating)
             {
@@ -44,9 +42,11 @@
     </form>
 </div>
 <hr/>
-<div class="row">
-    <img src="@PreviewGeneratedImageSrc" alt="preview" />
-</div>
+@if (PreviewGeneratedImageSrc != string.Empty){
+    <div class="row">
+        <img src="@PreviewGeneratedImageSrc" alt="preview" />
+    </div>
+}
 
 @code {
     public int ImageSize = 100;
