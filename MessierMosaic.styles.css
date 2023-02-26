@@ -82,3 +82,15 @@ main[b-1ra2yzfnnp] {
         padding-right: 1.5rem !important;
     }
 }
+/* /Shared/MessierObjectView.razor.rz.scp.css */
+.overlay[b-gi71fuomj7] {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.item[b-gi71fuomj7] {
+    position: relative;
+}
