@@ -7,7 +7,7 @@
     "key": "M1",
     "magnitude": "8.4",
     "ngc": "NGC 1952",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Crab_Nebula.jpg/300px-Crab_Nebula.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Crab_Nebula.jpg/900px-Crab_Nebula.jpg",
     "right_ascension": "05h 34m 31.94s",
     "type": "Supernova remnant"
   },
@@ -19,7 +19,7 @@
     "key": "M10",
     "magnitude": "6.4",
     "ngc": "NGC 6254",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Messier_10_Hubble_WikiSky.jpg/300px-Messier_10_Hubble_WikiSky.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Messier_10_Hubble_WikiSky.jpg/900px-Messier_10_Hubble_WikiSky.jpg",
     "right_ascension": "16h 57m 8.92s",
     "type": "Globular cluster"
   },
@@ -31,7 +31,7 @@
     "key": "M100",
     "magnitude": "10.1",
     "ngc": "NGC 4321",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Messier_100_and_Supernova_SN_2006X.jpg/300px-Messier_100_and_Supernova_SN_2006X.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Messier_100_and_Supernova_SN_2006X.jpg/900px-Messier_100_and_Supernova_SN_2006X.jpg",
     "right_ascension": "12h 22m 54.9s",
     "type": "Spiral galaxy"
   },
@@ -43,7 +43,7 @@
     "key": "M101",
     "magnitude": "7.9",
     "ngc": "NGC 5457",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/M101_hires_STScI-PRC2006-10a.jpg/300px-M101_hires_STScI-PRC2006-10a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/M101_hires_STScI-PRC2006-10a.jpg/900px-M101_hires_STScI-PRC2006-10a.jpg",
     "right_ascension": "14h 03m 12.6s",
     "type": "Spiral galaxy"
   },
@@ -55,7 +55,7 @@
     "key": "M102",
     "magnitude": "10.7",
     "ngc": "NGC 5866",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Ngc5866_hst_big.png/300px-Ngc5866_hst_big.png",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Ngc5866_hst_big.png/900px-Ngc5866_hst_big.png",
     "right_ascension": "15h 06m 29.5s",
     "type": "Lenticular galaxy"
   },
@@ -67,7 +67,7 @@
     "key": "M103",
     "magnitude": "7.4",
     "ngc": "NGC 581",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Messier_object_103.jpg/300px-Messier_object_103.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Messier_object_103.jpg/900px-Messier_object_103.jpg",
     "right_ascension": "01h 33.2m",
     "type": "Open cluster"
   },
@@ -79,7 +79,7 @@
     "key": "M104",
     "magnitude": "9.0",
     "ngc": "NGC 4594",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/M104_ngc4594_sombrero_galaxy_hi-res.jpg/300px-M104_ngc4594_sombrero_galaxy_hi-res.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/M104_ngc4594_sombrero_galaxy_hi-res.jpg/900px-M104_ngc4594_sombrero_galaxy_hi-res.jpg",
     "right_ascension": "12h 39m 59.4s",
     "type": "Spiral galaxy"
   },
@@ -91,7 +91,7 @@
     "key": "M105",
     "magnitude": "10.2",
     "ngc": "NGC 3379",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Messier105_-_HST_-_Potw1901a.jpg/300px-Messier105_-_HST_-_Potw1901a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Messier105_-_HST_-_Potw1901a.jpg/900px-Messier105_-_HST_-_Potw1901a.jpg",
     "right_ascension": "10h 47m 49.6s",
     "type": "Elliptical galaxy"
   },
@@ -103,7 +103,7 @@
     "key": "M106",
     "magnitude": "9.1",
     "ngc": "NGC 4258",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/M106_-_Messier_106_Galaxy.jpg/300px-M106_-_Messier_106_Galaxy.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/M106_-_Messier_106_Galaxy.jpg/900px-M106_-_Messier_106_Galaxy.jpg",
     "right_ascension": "12h 18m 57.5s",
     "type": "Spiral galaxy"
   },
@@ -115,7 +115,7 @@
     "key": "M107",
     "magnitude": "8.9",
     "ngc": "NGC 6171",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Messier_object_107.jpg/300px-Messier_object_107.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Messier_object_107.jpg/900px-Messier_object_107.jpg",
     "right_ascension": "16h 32m 31.86s",
     "type": "Globular cluster"
   },
@@ -127,7 +127,7 @@
     "key": "M108",
     "magnitude": "10.7",
     "ngc": "NGC 3556",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Messier108_-_SDSS_DR_14_%28panorama%29.jpg/300px-Messier108_-_SDSS_DR_14_%28panorama%29.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Messier108_-_SDSS_DR_14_%28panorama%29.jpg/900px-Messier108_-_SDSS_DR_14_%28panorama%29.jpg",
     "right_ascension": "11h 11m 31.0s",
     "type": "Barred Spiral galaxy"
   },
@@ -139,7 +139,7 @@
     "key": "M109",
     "magnitude": "10.6",
     "ngc": "NGC 3992",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Messier109_-_SDSS_DR14_%28panorama%29.jpg/300px-Messier109_-_SDSS_DR14_%28panorama%29.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Messier109_-_SDSS_DR14_%28panorama%29.jpg/900px-Messier109_-_SDSS_DR14_%28panorama%29.jpg",
     "right_ascension": "11h 57m 36.0s",
     "type": "Barred Spiral galaxy"
   },
@@ -151,7 +151,7 @@
     "key": "M11",
     "magnitude": "6.3",
     "ngc": "NGC 6705",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Eso1430a.jpg/300px-Eso1430a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Eso1430a.jpg/900px-Eso1430a.jpg",
     "right_ascension": "18h 51.1m",
     "type": "Open cluster"
   },
@@ -163,7 +163,7 @@
     "key": "M110",
     "magnitude": "9.0",
     "ngc": "NGC 205",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Messier_object_110.jpg/300px-Messier_object_110.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Messier_object_110.jpg/900px-Messier_object_110.jpg",
     "right_ascension": "00h 40m 22.1s",
     "type": "Dwarf elliptical galaxy"
   },
@@ -175,7 +175,7 @@
     "key": "M12",
     "magnitude": "7.7",
     "ngc": "NGC 6218",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/M12_Hubble.jpg/300px-M12_Hubble.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/M12_Hubble.jpg/900px-M12_Hubble.jpg",
     "right_ascension": "16h 47m 14.18s",
     "type": "Globular cluster"
   },
@@ -187,7 +187,7 @@
     "key": "M13",
     "magnitude": "5.8",
     "ngc": "NGC 6205",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Messier_13_Hubble_WikiSky.jpg/300px-Messier_13_Hubble_WikiSky.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Messier_13_Hubble_WikiSky.jpg/900px-Messier_13_Hubble_WikiSky.jpg",
     "right_ascension": "16h 41m 41.24s",
     "type": "Globular cluster"
   },
@@ -199,7 +199,7 @@
     "key": "M14",
     "magnitude": "8.3",
     "ngc": "NGC 6402",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Messier_object_014.jpg/300px-Messier_object_014.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Messier_object_014.jpg/900px-Messier_object_014.jpg",
     "right_ascension": "17h 37m 36.15s",
     "type": "Globular cluster"
   },
@@ -211,7 +211,7 @@
     "key": "M15",
     "magnitude": "6.2",
     "ngc": "NGC 7078",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Messier_15_Hubble_WikiSky.jpg/300px-Messier_15_Hubble_WikiSky.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Messier_15_Hubble_WikiSky.jpg/900px-Messier_15_Hubble_WikiSky.jpg",
     "right_ascension": "21h 29m 58.33s",
     "type": "Globular cluster"
   },
@@ -223,7 +223,7 @@
     "key": "M16",
     "magnitude": "6.0",
     "ngc": "NGC 6611",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Eagle_Nebula_from_ESO.jpg/300px-Eagle_Nebula_from_ESO.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Eagle_Nebula_from_ESO.jpg/900px-Eagle_Nebula_from_ESO.jpg",
     "right_ascension": "18h 18m 48s",
     "type": "H II region nebula with cluster"
   },
@@ -235,7 +235,7 @@
     "key": "M17",
     "magnitude": "6.0",
     "ngc": "NGC 6618",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/The_star_formation_region_Messier_17.jpg/300px-The_star_formation_region_Messier_17.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/The_star_formation_region_Messier_17.jpg/900px-The_star_formation_region_Messier_17.jpg",
     "right_ascension": "18h 20m 26s",
     "type": "H II region nebula with cluster"
   },
@@ -247,7 +247,7 @@
     "key": "M18",
     "magnitude": "7.5",
     "ngc": "NGC 6613",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Messier18.jpg/300px-Messier18.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Messier18.jpg/900px-Messier18.jpg",
     "right_ascension": "18h 19.9m",
     "type": "Open cluster"
   },
@@ -259,7 +259,7 @@
     "key": "M19",
     "magnitude": "7.5",
     "ngc": "NGC 6273",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Messier_19_Hubble_WikiSky.jpg/300px-Messier_19_Hubble_WikiSky.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Messier_19_Hubble_WikiSky.jpg/900px-Messier_19_Hubble_WikiSky.jpg",
     "right_ascension": "17h 02m 37.69s",
     "type": "Globular cluster"
   },
@@ -271,7 +271,7 @@
     "key": "M2",
     "magnitude": "6.3",
     "ngc": "NGC 7089",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Messier2_-_HST_-_Potw1913a.jpg/300px-Messier2_-_HST_-_Potw1913a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Messier2_-_HST_-_Potw1913a.jpg/900px-Messier2_-_HST_-_Potw1913a.jpg",
     "right_ascension": "21h 33m 27.02s",
     "type": "Globular cluster"
   },
@@ -283,7 +283,7 @@
     "key": "M20",
     "magnitude": "6.3",
     "ngc": "NGC 6514",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Trifid.nebula.arp.750pix.jpg/300px-Trifid.nebula.arp.750pix.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Trifid.nebula.arp.750pix.jpg/900px-Trifid.nebula.arp.750pix.jpg",
     "right_ascension": "18h 02m 23s",
     "type": "H II region nebula\n\t\t\twith cluster"
   },
@@ -307,7 +307,7 @@
     "key": "M22",
     "magnitude": "5.1",
     "ngc": "NGC 6656",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Messier_22_Hubble_WikiSky.jpg/300px-Messier_22_Hubble_WikiSky.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Messier_22_Hubble_WikiSky.jpg/900px-Messier_22_Hubble_WikiSky.jpg",
     "right_ascension": "18h 36m 23.94s",
     "type": "Globular cluster"
   },
@@ -319,7 +319,7 @@
     "key": "M23",
     "magnitude": "6.9",
     "ngc": "NGC 6494",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Messier_object_023.jpg/300px-Messier_object_023.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Messier_object_023.jpg/900px-Messier_object_023.jpg",
     "right_ascension": "17h 56.8m",
     "type": "Open cluster"
   },
@@ -331,7 +331,7 @@
     "key": "M24",
     "magnitude": "2.5",
     "ngc": "IC 4715",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Messier_24_Colombari_crop_invert.jpg/300px-Messier_24_Colombari_crop_invert.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Messier_24_Colombari_crop_invert.jpg/900px-Messier_24_Colombari_crop_invert.jpg",
     "right_ascension": "18h 17m",
     "type": "Milky Way\n\t\t\tstar cloud"
   },
@@ -343,7 +343,7 @@
     "key": "M25",
     "magnitude": "4.6",
     "ngc": "IC 4725",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Messier_object_025.jpg/300px-Messier_object_025.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Messier_object_025.jpg/900px-Messier_object_025.jpg",
     "right_ascension": "18h 31.6m",
     "type": "Open cluster"
   },
@@ -355,7 +355,7 @@
     "key": "M26",
     "magnitude": "8.0",
     "ngc": "NGC 6694",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Messier_26.jpg/300px-Messier_26.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Messier_26.jpg/900px-Messier_26.jpg",
     "right_ascension": "18h 45.2m",
     "type": "Open cluster"
   },
@@ -367,7 +367,7 @@
     "key": "M27",
     "magnitude": "7.5",
     "ngc": "NGC 6853",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/M27_-_Dumbbell_Nebula.jpg/300px-M27_-_Dumbbell_Nebula.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/M27_-_Dumbbell_Nebula.jpg/900px-M27_-_Dumbbell_Nebula.jpg",
     "right_ascension": "19h 59m 36.340s",
     "type": "Planetary nebula"
   },
@@ -379,7 +379,7 @@
     "key": "M28",
     "magnitude": "7.7",
     "ngc": "NGC 6626",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Nebulous%2C_but_no_nebula_Messier_28.jpg/300px-Nebulous%2C_but_no_nebula_Messier_28.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Nebulous%2C_but_no_nebula_Messier_28.jpg/900px-Nebulous%2C_but_no_nebula_Messier_28.jpg",
     "right_ascension": "18h 24m 32.89s",
     "type": "Globular cluster"
   },
@@ -391,7 +391,7 @@
     "key": "M29",
     "magnitude": "7.1",
     "ngc": "NGC 6913",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Messier_29.jpg/300px-Messier_29.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Messier_29.jpg/900px-Messier_29.jpg",
     "right_ascension": "20h 23m 56s",
     "type": "Open cluster"
   },
@@ -403,7 +403,7 @@
     "key": "M3",
     "magnitude": "6.2",
     "ngc": "NGC 5272",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Messier3_-_HST_-_Potw1914a.jpg/300px-Messier3_-_HST_-_Potw1914a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Messier3_-_HST_-_Potw1914a.jpg/900px-Messier3_-_HST_-_Potw1914a.jpg",
     "right_ascension": "13h 42m 11.62s",
     "type": "Globular cluster"
   },
@@ -415,7 +415,7 @@
     "key": "M30",
     "magnitude": "7.7",
     "ngc": "NGC 7099",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Messier_30_Hubble_WikiSky.jpg/300px-Messier_30_Hubble_WikiSky.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Messier_30_Hubble_WikiSky.jpg/900px-Messier_30_Hubble_WikiSky.jpg",
     "right_ascension": "21h 40m 22.12",
     "type": "Globular cluster"
   },
@@ -427,7 +427,7 @@
     "key": "M31",
     "magnitude": "3.4",
     "ngc": "NGC 224",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Andromeda_Galaxy_%28with_h-alpha%29.jpg/300px-Andromeda_Galaxy_%28with_h-alpha%29.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Andromeda_Galaxy_%28with_h-alpha%29.jpg/900px-Andromeda_Galaxy_%28with_h-alpha%29.jpg",
     "right_ascension": "00h 42m 44.3s",
     "type": "Spiral galaxy"
   },
@@ -439,7 +439,7 @@
     "key": "M32",
     "magnitude": "8.1",
     "ngc": "NGC 221",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/M32_Lanoue.png/300px-M32_Lanoue.png",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/M32_Lanoue.png/900px-M32_Lanoue.png",
     "right_ascension": "00h 42m 41.8s",
     "type": "Dwarf elliptical galaxy"
   },
@@ -451,7 +451,7 @@
     "key": "M33",
     "magnitude": "5.7",
     "ngc": "NGC 598",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/VST_snaps_a_very_detailed_view_of_the_Triangulum_Galaxy.jpg/300px-VST_snaps_a_very_detailed_view_of_the_Triangulum_Galaxy.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/VST_snaps_a_very_detailed_view_of_the_Triangulum_Galaxy.jpg/900px-VST_snaps_a_very_detailed_view_of_the_Triangulum_Galaxy.jpg",
     "right_ascension": "01h 33m 50.02s",
     "type": "Spiral galaxy"
   },
@@ -463,7 +463,7 @@
     "key": "M34",
     "magnitude": "5.5",
     "ngc": "NGC 1039",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/M34_2mass_atlas.jpg/300px-M34_2mass_atlas.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/M34_2mass_atlas.jpg/900px-M34_2mass_atlas.jpg",
     "right_ascension": "02h 42.1m",
     "type": "Open cluster"
   },
@@ -475,7 +475,7 @@
     "key": "M35",
     "magnitude": "5.3",
     "ngc": "NGC 2168",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/M35atlas.jpg/300px-M35atlas.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/M35atlas.jpg/900px-M35atlas.jpg",
     "right_ascension": "06h 09.1m",
     "type": "Open cluster"
   },
@@ -487,7 +487,7 @@
     "key": "M36",
     "magnitude": "6.3",
     "ngc": "NGC 1960",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/M36a.jpg/300px-M36a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/M36a.jpg/900px-M36a.jpg",
     "right_ascension": "05h 36m 12s",
     "type": "Open cluster"
   },
@@ -499,7 +499,7 @@
     "key": "M37",
     "magnitude": "6.2",
     "ngc": "NGC 2099",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/M37a.jpg/300px-M37a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/M37a.jpg/900px-M37a.jpg",
     "right_ascension": "05h 52m 18s",
     "type": "Open cluster"
   },
@@ -511,7 +511,7 @@
     "key": "M38",
     "magnitude": "7.4",
     "ngc": "NGC 1912",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/M38_Open_Cluster.jpg/300px-M38_Open_Cluster.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/M38_Open_Cluster.jpg/900px-M38_Open_Cluster.jpg",
     "right_ascension": "05h 28m 42s",
     "type": "Open cluster"
   },
@@ -523,7 +523,7 @@
     "key": "M39",
     "magnitude": "5.5",
     "ngc": "NGC 7092",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/M39atlas.jpg/300px-M39atlas.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/M39atlas.jpg/900px-M39atlas.jpg",
     "right_ascension": "21h 31m 42s",
     "type": "Open cluster"
   },
@@ -535,7 +535,7 @@
     "key": "M4",
     "magnitude": "5.9",
     "ngc": "NGC 6121",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Globular_star_cluster_Messier_4.jpg/300px-Globular_star_cluster_Messier_4.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Globular_star_cluster_Messier_4.jpg/900px-Globular_star_cluster_Messier_4.jpg",
     "right_ascension": "16h 23m 35.22s",
     "type": "Globular cluster"
   },
@@ -559,7 +559,7 @@
     "key": "M41",
     "magnitude": "4.5",
     "ngc": "NGC 2287",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Messier_041_2MASS.jpg/300px-Messier_041_2MASS.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Messier_041_2MASS.jpg/900px-Messier_041_2MASS.jpg",
     "right_ascension": "06h 46.0m",
     "type": "Open cluster"
   },
@@ -571,7 +571,7 @@
     "key": "M42",
     "magnitude": "4.0",
     "ngc": "NGC 1976",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg/300px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg/900px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg",
     "right_ascension": "05h 35m 17.3",
     "type": "H II region nebula"
   },
@@ -583,7 +583,7 @@
     "key": "M43",
     "magnitude": "9.0",
     "ngc": "NGC 1982",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/M43_HST.jpg/300px-M43_HST.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/M43_HST.jpg/900px-M43_HST.jpg",
     "right_ascension": "05h 35.6m",
     "type": "H II region nebula (part of the Orion Nebula)"
   },
@@ -595,7 +595,7 @@
     "key": "M44",
     "magnitude": "3.7",
     "ngc": "NGC 2632",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Messier_44_2018.jpg/300px-Messier_44_2018.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Messier_44_2018.jpg/900px-Messier_44_2018.jpg",
     "right_ascension": "08h 40.4m",
     "type": "Open cluster"
   },
@@ -607,7 +607,7 @@
     "key": "M45",
     "magnitude": "1.6",
     "ngc": "",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Bob_Star_-_M45_Carranza_Field_%28by%29.jpg/300px-Bob_Star_-_M45_Carranza_Field_%28by%29.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Bob_Star_-_M45_Carranza_Field_%28by%29.jpg/900px-Bob_Star_-_M45_Carranza_Field_%28by%29.jpg",
     "right_ascension": "03h 47m 24s",
     "type": "Open cluster"
   },
@@ -619,7 +619,7 @@
     "key": "M46",
     "magnitude": "6.1",
     "ngc": "NGC 2437",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/M46a.jpg/300px-M46a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/M46a.jpg/900px-M46a.jpg",
     "right_ascension": "07h 41.8m",
     "type": "Open cluster"
   },
@@ -631,7 +631,7 @@
     "key": "M47",
     "magnitude": "4.2",
     "ngc": "NGC 2422",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/M47a.jpg/300px-M47a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/M47a.jpg/900px-M47a.jpg",
     "right_ascension": "07h 36.6m",
     "type": "Open cluster"
   },
@@ -643,7 +643,7 @@
     "key": "M48",
     "magnitude": "5.5",
     "ngc": "NGC 2548",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/M48a.jpg/300px-M48a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/M48a.jpg/900px-M48a.jpg",
     "right_ascension": "08h 13.7m",
     "type": "Open cluster"
   },
@@ -655,7 +655,7 @@
     "key": "M49",
     "magnitude": "9.4",
     "ngc": "NGC 4472",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Messier_49_Hubble_WikiSky.jpg/300px-Messier_49_Hubble_WikiSky.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Messier_49_Hubble_WikiSky.jpg/900px-Messier_49_Hubble_WikiSky.jpg",
     "right_ascension": "12h 29m 46.7s",
     "type": "Elliptical galaxy"
   },
@@ -667,7 +667,7 @@
     "key": "M5",
     "magnitude": "6.7",
     "ngc": "NGC 5904",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Messier_5_-_HST.jpg/300px-Messier_5_-_HST.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Messier_5_-_HST.jpg/900px-Messier_5_-_HST.jpg",
     "right_ascension": "15h 18m 33.22s",
     "type": "Globular cluster"
   },
@@ -679,7 +679,7 @@
     "key": "M50",
     "magnitude": "5.9",
     "ngc": "NGC 2323",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/M50a.jpg/300px-M50a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/M50a.jpg/900px-M50a.jpg",
     "right_ascension": "07h 03.2m",
     "type": "Open cluster"
   },
@@ -691,7 +691,7 @@
     "key": "M51",
     "magnitude": "8.4",
     "ngc": "NGC 5194,\n\t\t\tNGC 5195",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Messier51_sRGB.jpg/300px-Messier51_sRGB.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Messier51_sRGB.jpg/900px-Messier51_sRGB.jpg",
     "right_ascension": "13h 29m 52.7s",
     "type": "Spiral galaxy"
   },
@@ -703,7 +703,7 @@
     "key": "M52",
     "magnitude": "5.0",
     "ngc": "NGC 7654",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/M52atlas.jpg/300px-M52atlas.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/M52atlas.jpg/900px-M52atlas.jpg",
     "right_ascension": "23h 24.2m",
     "type": "Open cluster"
   },
@@ -715,7 +715,7 @@
     "key": "M53",
     "magnitude": "8.3",
     "ngc": "NGC 5024",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Globular_Cluster_M53.jpg/300px-Globular_Cluster_M53.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Globular_Cluster_M53.jpg/900px-Globular_Cluster_M53.jpg",
     "right_ascension": "13h 12m 55.25s",
     "type": "Globular cluster"
   },
@@ -727,7 +727,7 @@
     "key": "M54",
     "magnitude": "8.4",
     "ngc": "NGC 6715",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Messier54.jpg/300px-Messier54.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Messier54.jpg/900px-Messier54.jpg",
     "right_ascension": "18h 55m 03.33s",
     "type": "Globular cluster"
   },
@@ -739,7 +739,7 @@
     "key": "M55",
     "magnitude": "7.4",
     "ngc": "NGC 6809",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Messier55.jpg/300px-Messier55.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Messier55.jpg/900px-Messier55.jpg",
     "right_ascension": "19h 39m 59.71s",
     "type": "Globular cluster"
   },
@@ -751,7 +751,7 @@
     "key": "M56",
     "magnitude": "8.3",
     "ngc": "NGC 6779",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/M56-LRGB.jpg/300px-M56-LRGB.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/M56-LRGB.jpg/900px-M56-LRGB.jpg",
     "right_ascension": "19h 16m 35.57s",
     "type": "Globular cluster"
   },
@@ -763,7 +763,7 @@
     "key": "M57",
     "magnitude": "8.8",
     "ngc": "NGC 6720",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/M57_The_Ring_Nebula.JPG/300px-M57_The_Ring_Nebula.JPG",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/M57_The_Ring_Nebula.JPG/900px-M57_The_Ring_Nebula.JPG",
     "right_ascension": "18h 53m 35.079s",
     "type": "Planetary nebula"
   },
@@ -775,7 +775,7 @@
     "key": "M58",
     "magnitude": "10.5",
     "ngc": "NGC 4579",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/M58s_%28visible%29.jpg/300px-M58s_%28visible%29.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/M58s_%28visible%29.jpg/900px-M58s_%28visible%29.jpg",
     "right_ascension": "12h 37m 43.5s",
     "type": "Barred Spiral galaxy"
   },
@@ -787,7 +787,7 @@
     "key": "M59",
     "magnitude": "10.6",
     "ngc": "NGC 4621",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Messier59_-_HST_-_Potw1921a.jpg/300px-Messier59_-_HST_-_Potw1921a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Messier59_-_HST_-_Potw1921a.jpg/900px-Messier59_-_HST_-_Potw1921a.jpg",
     "right_ascension": "12h 42m 02.3s",
     "type": "Elliptical galaxy"
   },
@@ -799,7 +799,7 @@
     "key": "M6",
     "magnitude": "4.2",
     "ngc": "NGC 6405",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/M6a.jpg/300px-M6a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/M6a.jpg/900px-M6a.jpg",
     "right_ascension": "17h 40.1m",
     "type": "Open cluster"
   },
@@ -811,7 +811,7 @@
     "key": "M60",
     "magnitude": "9.8",
     "ngc": "NGC 4649",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Messier_60_Hubble_WikiSky.jpg/300px-Messier_60_Hubble_WikiSky.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Messier_60_Hubble_WikiSky.jpg/900px-Messier_60_Hubble_WikiSky.jpg",
     "right_ascension": "12h 43m 39.6s",
     "type": "Elliptical galaxy"
   },
@@ -823,7 +823,7 @@
     "key": "M61",
     "magnitude": "10.2",
     "ngc": "NGC 4303",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Messier61_-_ESO_-_Potw1901a.tif/lossy-page1-300px-Messier61_-_ESO_-_Potw1901a.tif.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Messier61_-_ESO_-_Potw1901a.tif/lossy-page1-900px-Messier61_-_ESO_-_Potw1901a.tif.jpg",
     "right_ascension": "12h 21m 54.9s",
     "type": "Spiral galaxy"
   },
@@ -835,7 +835,7 @@
     "key": "M62",
     "magnitude": "7.4",
     "ngc": "NGC 6266",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Messier_object_062.jpg/300px-Messier_object_062.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Messier_object_062.jpg/900px-Messier_object_062.jpg",
     "right_ascension": "17h 01m 12.60s",
     "type": "Globular cluster"
   },
@@ -847,7 +847,7 @@
     "key": "M63",
     "magnitude": "9.3",
     "ngc": "NGC 5055",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/M63s.jpg/300px-M63s.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/M63s.jpg/900px-M63s.jpg",
     "right_ascension": "13h 15m 49.3s",
     "type": "Spiral galaxy"
   },
@@ -859,7 +859,7 @@
     "key": "M64",
     "magnitude": "9.4",
     "ngc": "NGC 4826",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Blackeyegalaxy.jpg/300px-Blackeyegalaxy.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Blackeyegalaxy.jpg/900px-Blackeyegalaxy.jpg",
     "right_ascension": "12h 56m 43.7s",
     "type": "Spiral galaxy"
   },
@@ -871,7 +871,7 @@
     "key": "M65",
     "magnitude": "10.3",
     "ngc": "NGC 3623",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/M65.jpg/300px-M65.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/M65.jpg/900px-M65.jpg",
     "right_ascension": "11h 18m 55.9s",
     "type": "Barred Spiral galaxy"
   },
@@ -883,7 +883,7 @@
     "key": "M66",
     "magnitude": "8.9",
     "ngc": "NGC 3627",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Phot-33c-03-fullres.jpg/300px-Phot-33c-03-fullres.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Phot-33c-03-fullres.jpg/900px-Phot-33c-03-fullres.jpg",
     "right_ascension": "11h 20m 15.0s",
     "type": "Barred Spiral galaxy"
   },
@@ -895,7 +895,7 @@
     "key": "M67",
     "magnitude": "6.1",
     "ngc": "NGC 2682",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Messier_object_067.jpg/300px-Messier_object_067.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Messier_object_067.jpg/900px-Messier_object_067.jpg",
     "right_ascension": "08h 51.3m",
     "type": "Open cluster"
   },
@@ -907,7 +907,7 @@
     "key": "M68",
     "magnitude": "9.7",
     "ngc": "NGC 4590",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Messier_object_068.jpg/300px-Messier_object_068.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Messier_object_068.jpg/900px-Messier_object_068.jpg",
     "right_ascension": "12h 39m 27.98s",
     "type": "Globular cluster"
   },
@@ -919,7 +919,7 @@
     "key": "M69",
     "magnitude": "8.3",
     "ngc": "NGC 6637",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Messier_object_069.jpg/300px-Messier_object_069.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Messier_object_069.jpg/900px-Messier_object_069.jpg",
     "right_ascension": "18h 31m 23.10s",
     "type": "Globular cluster"
   },
@@ -931,7 +931,7 @@
     "key": "M7",
     "magnitude": "3.3",
     "ngc": "NGC 6475",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/The_star_cluster_Messier_7.jpg/300px-The_star_cluster_Messier_7.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/The_star_cluster_Messier_7.jpg/900px-The_star_cluster_Messier_7.jpg",
     "right_ascension": "17h 53m 51.2s",
     "type": "Open cluster"
   },
@@ -943,7 +943,7 @@
     "key": "M70",
     "magnitude": "9.1",
     "ngc": "NGC 6681",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Messier70.jpg/300px-Messier70.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Messier70.jpg/900px-Messier70.jpg",
     "right_ascension": "18h 43m 12.76s",
     "type": "Globular cluster"
   },
@@ -955,7 +955,7 @@
     "key": "M71",
     "magnitude": "6.1",
     "ngc": "NGC 6838",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Messier71.jpg/300px-Messier71.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Messier71.jpg/900px-Messier71.jpg",
     "right_ascension": "19h 53m 46.49s",
     "type": "Globular cluster"
   },
@@ -967,7 +967,7 @@
     "key": "M72",
     "magnitude": "9.4",
     "ngc": "NGC 6981",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Messier72.jpg/300px-Messier72.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Messier72.jpg/900px-Messier72.jpg",
     "right_ascension": "20h 53m 27.70s",
     "type": "Globular cluster"
   },
@@ -979,7 +979,7 @@
     "key": "M73",
     "magnitude": "9.0",
     "ngc": "NGC 6994",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Messier_073_2MASS.jpg/300px-Messier_073_2MASS.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Messier_073_2MASS.jpg/900px-Messier_073_2MASS.jpg",
     "right_ascension": "20h 58m 54s",
     "type": "Asterism"
   },
@@ -991,7 +991,7 @@
     "key": "M74",
     "magnitude": "10.0",
     "ngc": "NGC 628",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Messier_74_by_HST.jpg/300px-Messier_74_by_HST.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Messier_74_by_HST.jpg/900px-Messier_74_by_HST.jpg",
     "right_ascension": "01h 36m 41.8s",
     "type": "Spiral galaxy"
   },
@@ -1003,7 +1003,7 @@
     "key": "M75",
     "magnitude": "9.2",
     "ngc": "NGC 6864",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Messier75.jpg/300px-Messier75.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Messier75.jpg/900px-Messier75.jpg",
     "right_ascension": "20h 06m 04.75s",
     "type": "Globular cluster"
   },
@@ -1015,7 +1015,7 @@
     "key": "M76",
     "magnitude": "10.1",
     "ngc": "NGC 650, NGC 651",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/M76-RL5-DDmin-Gamma-LRGB_883x628.jpg/300px-M76-RL5-DDmin-Gamma-LRGB_883x628.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/M76-RL5-DDmin-Gamma-LRGB_883x628.jpg/900px-M76-RL5-DDmin-Gamma-LRGB_883x628.jpg",
     "right_ascension": "01h 42.4m",
     "type": "Planetary nebula"
   },
@@ -1027,7 +1027,7 @@
     "key": "M77",
     "magnitude": "9.6",
     "ngc": "NGC 1068",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/M77_Galaxy_from_the_Mount_Lemmon_SkyCenter_Schulman_Telescope_courtesy_Adam_Block.jpg/300px-M77_Galaxy_from_the_Mount_Lemmon_SkyCenter_Schulman_Telescope_courtesy_Adam_Block.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/M77_Galaxy_from_the_Mount_Lemmon_SkyCenter_Schulman_Telescope_courtesy_Adam_Block.jpg/900px-M77_Galaxy_from_the_Mount_Lemmon_SkyCenter_Schulman_Telescope_courtesy_Adam_Block.jpg",
     "right_ascension": "02h 42m 40.7s",
     "type": "Spiral galaxy"
   },
@@ -1039,7 +1039,7 @@
     "key": "M78",
     "magnitude": "8.3",
     "ngc": "NGC 2068",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Messier_78.jpg/300px-Messier_78.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Messier_78.jpg/900px-Messier_78.jpg",
     "right_ascension": "05h 46m 46.7s",
     "type": "Diffuse nebula"
   },
@@ -1051,7 +1051,7 @@
     "key": "M79",
     "magnitude": "8.6",
     "ngc": "NGC 1904",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/M79a.jpg/300px-M79a.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/M79a.jpg/900px-M79a.jpg",
     "right_ascension": "05h 24m 10.59s",
     "type": "Globular cluster"
   },
@@ -1063,7 +1063,7 @@
     "key": "M8",
     "magnitude": "6.0",
     "ngc": "NGC 6523",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/LagoonHunterWilson.jpg/300px-LagoonHunterWilson.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/LagoonHunterWilson.jpg/900px-LagoonHunterWilson.jpg",
     "right_ascension": "18h 03m 37s",
     "type": "Nebula with cluster"
   },
@@ -1075,7 +1075,7 @@
     "key": "M80",
     "magnitude": "7.9",
     "ngc": "NGC 6093",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/A_Swarm_of_Ancient_Stars_-_GPN-2000-000930.jpg/300px-A_Swarm_of_Ancient_Stars_-_GPN-2000-000930.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/A_Swarm_of_Ancient_Stars_-_GPN-2000-000930.jpg/900px-A_Swarm_of_Ancient_Stars_-_GPN-2000-000930.jpg",
     "right_ascension": "16h 17m 02.41s",
     "type": "Globular cluster"
   },
@@ -1087,7 +1087,7 @@
     "key": "M81",
     "magnitude": "6.9",
     "ngc": "NGC 3031",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Messier_81_HST.jpg/300px-Messier_81_HST.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Messier_81_HST.jpg/900px-Messier_81_HST.jpg",
     "right_ascension": "09h 55m 33.2s",
     "type": "Spiral galaxy"
   },
@@ -1099,7 +1099,7 @@
     "key": "M82",
     "magnitude": "8.4",
     "ngc": "NGC 3034",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/JPEG_M82_Cigar_Galaxyjn.jpg/300px-JPEG_M82_Cigar_Galaxyjn.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/JPEG_M82_Cigar_Galaxyjn.jpg/900px-JPEG_M82_Cigar_Galaxyjn.jpg",
     "right_ascension": "09h 55m 52.2s",
     "type": "Starburst galaxy"
   },
@@ -1111,7 +1111,7 @@
     "key": "M83",
     "magnitude": "7.5",
     "ngc": "NGC 5236",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/M83_-_Southern_Pinwheel.jpg/300px-M83_-_Southern_Pinwheel.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/M83_-_Southern_Pinwheel.jpg/900px-M83_-_Southern_Pinwheel.jpg",
     "right_ascension": "13h 37m 00.9s",
     "type": "Barred Spiral galaxy"
   },
@@ -1123,7 +1123,7 @@
     "key": "M84",
     "magnitude": "10.1",
     "ngc": "NGC 4374",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Messier_84_nucleus_Hubble.jpg/300px-Messier_84_nucleus_Hubble.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Messier_84_nucleus_Hubble.jpg/900px-Messier_84_nucleus_Hubble.jpg",
     "right_ascension": "12h 25m 03.7s",
     "type": "Lenticular galaxy"
   },
@@ -1135,7 +1135,7 @@
     "key": "M85",
     "magnitude": "10.0",
     "ngc": "NGC 4382",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Messier_85_Hubble_WikiSky.jpg/300px-Messier_85_Hubble_WikiSky.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Messier_85_Hubble_WikiSky.jpg/900px-Messier_85_Hubble_WikiSky.jpg",
     "right_ascension": "12h 25m 24.0s",
     "type": "Lenticular galaxy"
   },
@@ -1147,7 +1147,7 @@
     "key": "M86",
     "magnitude": "9.8",
     "ngc": "NGC 4406",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Messier_86_Hubble_WikiSky.jpg/300px-Messier_86_Hubble_WikiSky.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Messier_86_Hubble_WikiSky.jpg/900px-Messier_86_Hubble_WikiSky.jpg",
     "right_ascension": "12h 26m 11.7s",
     "type": "Lenticular galaxy"
   },
@@ -1159,7 +1159,7 @@
     "key": "M87",
     "magnitude": "9.6",
     "ngc": "NGC 4486",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Messier_87_Hubble_WikiSky.jpg/300px-Messier_87_Hubble_WikiSky.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Messier_87_Hubble_WikiSky.jpg/900px-Messier_87_Hubble_WikiSky.jpg",
     "right_ascension": "12h 30m 49.42338s",
     "type": "Elliptical galaxy"
   },
@@ -1171,7 +1171,7 @@
     "key": "M88",
     "magnitude": "10.4",
     "ngc": "NGC 4501",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/M88s.jpg/300px-M88s.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/M88s.jpg/900px-M88s.jpg",
     "right_ascension": "12h 31m 59.2s",
     "type": "Spiral galaxy"
   },
@@ -1183,7 +1183,7 @@
     "key": "M89",
     "magnitude": "10.7",
     "ngc": "NGC 4552",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Messier89_-_HST_-_Potw1902a.tif/lossy-page1-300px-Messier89_-_HST_-_Potw1902a.tif.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Messier89_-_HST_-_Potw1902a.tif/lossy-page1-900px-Messier89_-_HST_-_Potw1902a.tif.jpg",
     "right_ascension": "12h 35m 39.8s",
     "type": "Elliptical galaxy"
   },
@@ -1195,7 +1195,7 @@
     "key": "M9",
     "magnitude": "8.4",
     "ngc": "NGC 6333",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Globular_cluster_Messier_9_%28captured_by_the_Hubble_Space_Telescope%29.tif/lossy-page1-300px-Globular_cluster_Messier_9_%28captured_by_the_Hubble_Space_Telescope%29.tif.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Globular_cluster_Messier_9_%28captured_by_the_Hubble_Space_Telescope%29.tif/lossy-page1-900px-Globular_cluster_Messier_9_%28captured_by_the_Hubble_Space_Telescope%29.tif.jpg",
     "right_ascension": "17h 19m 11.78s",
     "type": "Globular cluster"
   },
@@ -1207,7 +1207,7 @@
     "key": "M90",
     "magnitude": "10.3",
     "ngc": "NGC 4569",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Messier90_-_SDSS_DR14_%28panorama%29.jpg/300px-Messier90_-_SDSS_DR14_%28panorama%29.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Messier90_-_SDSS_DR14_%28panorama%29.jpg/900px-Messier90_-_SDSS_DR14_%28panorama%29.jpg",
     "right_ascension": "12h 36m 49.8s",
     "type": "Spiral galaxy"
   },
@@ -1219,7 +1219,7 @@
     "key": "M91",
     "magnitude": "11.0",
     "ngc": "NGC 4548",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/M91s.jpg/300px-M91s.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/M91s.jpg/900px-M91s.jpg",
     "right_ascension": "12h 35m 26.4s",
     "type": "Barred Spiral galaxy"
   },
@@ -1231,7 +1231,7 @@
     "key": "M92",
     "magnitude": "6.3",
     "ngc": "NGC 6341",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Globular_Cluster_M92.JPG/300px-Globular_Cluster_M92.JPG",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Globular_Cluster_M92.JPG/900px-Globular_Cluster_M92.JPG",
     "right_ascension": "17h 17m 07.39s",
     "type": "Globular cluster"
   },
@@ -1243,7 +1243,7 @@
     "key": "M93",
     "magnitude": "6.0",
     "ngc": "NGC 2447",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Messier_object_093.jpg/300px-Messier_object_093.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Messier_object_093.jpg/900px-Messier_object_093.jpg",
     "right_ascension": "07h 44.6m",
     "type": "Open cluster"
   },
@@ -1255,7 +1255,7 @@
     "key": "M94",
     "magnitude": "9.0",
     "ngc": "NGC 4736",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Messier_94.jpg/300px-Messier_94.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Messier_94.jpg/900px-Messier_94.jpg",
     "right_ascension": "12h 50m 53.1s",
     "type": "Spiral galaxy"
   },
@@ -1267,7 +1267,7 @@
     "key": "M95",
     "magnitude": "11.4",
     "ngc": "NGC 3351",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/The_VLT_goes_lion_hunting.jpg/300px-The_VLT_goes_lion_hunting.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/The_VLT_goes_lion_hunting.jpg/900px-The_VLT_goes_lion_hunting.jpg",
     "right_ascension": "10h 43m 57.7s",
     "type": "Barred Spiral galaxy"
   },
@@ -1279,7 +1279,7 @@
     "key": "M96",
     "magnitude": "10.1",
     "ngc": "NGC 3368",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/NGC_3368_ESO.jpg/300px-NGC_3368_ESO.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/NGC_3368_ESO.jpg/900px-NGC_3368_ESO.jpg",
     "right_ascension": "10h 46m 45.7s",
     "type": "Spiral galaxy"
   },
@@ -1291,7 +1291,7 @@
     "key": "M97",
     "magnitude": "9.9",
     "ngc": "NGC 3587",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/M97-stargazer-obs.jpg/300px-M97-stargazer-obs.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/M97-stargazer-obs.jpg/900px-M97-stargazer-obs.jpg",
     "right_ascension": "11h 14m 47.734s",
     "type": "Planetary nebula"
   },
@@ -1303,7 +1303,7 @@
     "key": "M98",
     "magnitude": "11.0",
     "ngc": "NGC 4192",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/M-98.jpg/300px-M-98.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/M-98.jpg/900px-M-98.jpg",
     "right_ascension": "12h 13m 48.292s",
     "type": "Spiral galaxy"
   },
@@ -1315,7 +1315,7 @@
     "key": "M99",
     "magnitude": "10.4",
     "ngc": "NGC 4254",
-    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/M99.jpg/300px-M99.jpg",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/M99.jpg/900px-M99.jpg",
     "right_ascension": "12h 18m 49.6s",
     "type": "Spiral galaxy"
   }

@@ -94,3 +94,20 @@ main[b-1ra2yzfnnp] {
 .item[b-gi71fuomj7] {
     position: relative;
 }
+
+
+.image[b-gi71fuomj7] {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 100%;
+    background-color: black;
+}
+
+    .image img[b-gi71fuomj7] {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
