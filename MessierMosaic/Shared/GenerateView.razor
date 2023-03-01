@@ -4,6 +4,7 @@
 @using TG.Blazor.IndexedDB;
 @inject IndexedDBManager DbManager
 @inject MosaicService MosaicService
+@inject IJSRuntime JS
 
 <div class="row">
     <form>
@@ -33,35 +34,39 @@
             @if (IsGenerating)
             {
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                <span class="sr-only">Generating...</span>
+                <span class="sr-only">@Status</span>
             } else
             {
                 <span>Generate</span>
             }
         </button>
         @if(ErrorMessage != string.Empty){
-            <div class="alert alert-danger" role="alert">
+            <div class="mt-2 alert alert-danger" role="alert">
                 @ErrorMessage
             </div>
         }
     </form>
 </div>
 <hr/>
-@if (PreviewGeneratedImageSrc != string.Empty){
+@if (GeneratedMosaicBytes.Length > 0)
+{
     <div class="row">
-        <img src="@PreviewGeneratedImageSrc" alt="preview" />
+        <button type="button" class="btn btn-primary mt-2" @onclick="DownloadFileFromStream">
+            Download File
+        </button>
     </div>
 }
 
 @code {
-    public int ImageSize = 600;
+    public int ImageSize = 300;
     public int ColumnsCount = 5;
     public int RowCounts = 0;
     public int ImageWidth = 0;
     public int ImageHeight = 0;
     public bool IsGenerating = false;
-    public string PreviewGeneratedImageSrc { get; set; } = string.Empty;
     public string ErrorMessage { get; set; } = string.Empty;
+    public string Status { get; set; } = string.Empty;
+    public byte[] GeneratedMosaicBytes { get; set; } = new byte[] { };
 
     public void RecomputeImageSize()
     {
@@ -97,13 +102,27 @@
     {
         IsGenerating = true;
         ErrorMessage = "";
+        Status = "Generating...";
         StateHasChanged();
         var results = await DbManager.GetRecords<MessierObjectEntry>(DbConfig.StoreName);
         if (results.Count < ColumnsCount) {
             ErrorMessage = "Not enough images to create grid!"; 
         } else {
-            var images = results.Select(r => MosaicService.GenerateAnnotatedImage(r.Image!, r.ImagePictureDescription, ImageSize)).ToList();
-            PreviewGeneratedImageSrc = MosaicService.GenerateAsBase64(images!, ImageSize, ColumnsCount);
+            var images = new List<byte[]>();
+            foreach(var r in results)
+            {
+                Status = $"Annotating image for {r.ImagePictureDescription}";
+                Console.WriteLine(Status);
+                StateHasChanged();
+                await Task.Delay(100);
+                var img = await MosaicService.GenerateAnnotatedImage(r.Image!, r.ImagePictureDescription, ImageSize);
+                images.Add(img);
+            }
+            Status = "Generating final mosaic image";
+            StateHasChanged();
+            await Task.Delay(100);
+            //GeneratedMosaicBytes = new byte[] { 0x0, 0x1 };
+            GeneratedMosaicBytes = await MosaicService.Generate(images!, ImageSize, ColumnsCount);
         }
         IsGenerating = false;
         StateHasChanged();
@@ -115,4 +134,13 @@
         RecomputeImageSize();
     }
 
+    private async Task DownloadFileFromStream()
+    {
+        var fileStream = new MemoryStream(GeneratedMosaicBytes);
+        var fileName = "mosaic.jpg";
+
+        using var streamRef = new DotNetStreamReference(stream: fileStream);
+
+        await JS.InvokeVoidAsync("downloadFileFromStream", fileName, streamRef);
+    }
 }

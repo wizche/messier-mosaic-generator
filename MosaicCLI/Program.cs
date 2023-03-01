@@ -30,7 +30,7 @@ foreach (var id in Enumerable.Range(1, 110))
     var obj = MessierObjects.Where(o => o.Name == $"M{id}").First();
     var original = await httpClient.GetAsync(obj.PictureUrl);
     var imgBytes = await original.Content.ReadAsByteArrayAsync();
-    var image = service.GenerateAnnotatedImage(imgBytes, obj.GetPictureDescription(), ImageSize);
+    var image = await service.GenerateAnnotatedImage(imgBytes, obj.GetPictureDescription(), ImageSize);
     images.Add(image);
 }
 service.GenerateAndSave(images, ImageSize, ColumnsCount, "Output/test.png");

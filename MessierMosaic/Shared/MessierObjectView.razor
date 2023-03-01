@@ -65,7 +65,7 @@
         await imagePreview.OpenReadStream(10 * 1024 * 1024).CopyToAsync(ms);
         var imagePreviewBytes = ms.ToArray();
         Console.WriteLine($"Generating preview");
-        imagePreviewBytes = MosaicService.GenerateAnnotatedImage(imagePreviewBytes, $"{Object?.GetPictureDescription()}", 300);
+        imagePreviewBytes = await MosaicService.GenerateAnnotatedImage(imagePreviewBytes, $"{Object?.GetPictureDescription()}", 300);
         var imagesrc = Convert.ToBase64String(imagePreviewBytes);
         ImageDataURL = string.Format($"data:{e.File.ContentType};base64,{imagesrc}");
         Console.WriteLine($"Saved {ImageDataURL.Length} bytes preview");

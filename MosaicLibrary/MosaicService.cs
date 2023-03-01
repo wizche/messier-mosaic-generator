@@ -35,7 +35,7 @@ namespace MosaicLibrary
             }
         }
 
-        public byte[] GenerateAnnotatedImage(byte[] input, string text, int imageSize)
+        public async Task<byte[]> GenerateAnnotatedImage(byte[] input, string text, int imageSize)
         {
             if(text.Length > 26)
             {
@@ -137,6 +137,12 @@ namespace MosaicLibrary
             return image.ToBase64String(JpegFormat.Instance);
         }
 
+        public async Task<byte[]> Generate(List<byte[]> images, int imageSize, int cols)
+        {
+            var image = generate(images, imageSize, cols);
+            return getBytes(image, JpegFormat.Instance);
+        }
+
         public Image<Rgba32> GenerateTitleImage(string title, int width, int height)
         {
             var padding = 100;
@@ -186,6 +192,9 @@ namespace MosaicLibrary
 
             dy = imageSize;
 
+            var placeholderImg = new Image<Rgba32>(imageSize, imageSize);
+            placeholderImg.Mutate(i => i.Fill(Color.Black));
+
             foreach (var r in Enumerable.Range(0, rows))
             {
                 foreach (var c in Enumerable.Range(0, cols))
@@ -197,8 +206,7 @@ namespace MosaicLibrary
                         img = Image.Load<Rgba32>(images[idx]);
                     } else
                     {
-                        img = new Image<Rgba32>(imageSize, imageSize);
-                        img.Mutate(i => i.Fill(Color.Black));
+                        img = placeholderImg;
                     }
                     
                     outputImage.Mutate(o => o
