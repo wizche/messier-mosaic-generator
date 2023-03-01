@@ -35,51 +35,61 @@ namespace MosaicLibrary
             }
         }
 
-        public byte[] GeneratePreview(byte[] preview, string text)
+        public byte[] GenerateAnnotatedImage(byte[] input, string text, int imageSize)
         {
-            var imageSize = 300;
-            var fontSize = (int)(imageSize / 18.75);
-            var border = fontSize / 2;
+            if(text.Length > 26)
+            {
+                text = text.Substring(0, 26);
+            }
+            var pad = new String(' ', (13 - (text.Length/2)));
+            text = pad + text;
+            var fontSize = (int)(imageSize / 20.20);
+            var border = fontSize;
             var color = Color.ParseHex("#808080"); 
             var font = Font.CreateFont(fontSize, FontStyle.Regular);
             var radius = imageSize / 2;
             var center = new PointF(radius, radius);
 
             IImageFormat format;
-            var img = Image<Rgba32>.Load(preview, out format);
+            var img = Image<Rgba32>.Load(input, out format);
             img.Mutate(o => o.Resize(new ResizeOptions
             {
                 Mode = ResizeMode.Crop,
                 Position = AnchorPositionMode.Center,
-                Size = new Size(300, 300)
+                Size = new Size(imageSize, imageSize)
             }));
             var topSegment = new ArcLineSegment(center, new SizeF(radius-border, radius-border), 0, -215, 255);
-            PathBuilder pathBuilder = new PathBuilder();
+            var pathBuilder = new PathBuilder();
             pathBuilder.AddSegment(topSegment);
 
-            var textSegment = new ArcLineSegment(center, new SizeF(radius- fontSize/2 - border, radius- fontSize/2-border), 0, -220, -100);
-            IPath textShape = new Polygon(textSegment);
-            TextOptions textOptions = new(font)
+            //var textSegment = new ArcLineSegment(center, new SizeF(radius- fontSize/2 - border, radius- fontSize/2-border), 0, 220, 100);
+            var textPathBuilder = new PathBuilder();
+            textPathBuilder.AddArc(center, radius - (fontSize/2) - border, radius - (fontSize/2) - border, 0, -215, -105);
+            //textPathBuilder.AddLine(new PointF(10, 150), new PointF(290, 150));
+            var textShape = textPathBuilder.Build();
+
+            var textBackgroundPathBuilder = new PathBuilder();
+            textBackgroundPathBuilder.AddArc(center, radius - border, radius - (fontSize/2) - border, 0, -215, -105);
+            var textBackgroundShape = textBackgroundPathBuilder.Build();
+
+            //var textSegment = new LinearLineSegment(new PointF(50, 150), new PointF(250, 150));
+            //IPath textShape = new Polygon(textSegment);
+            var textOptions = new TextOptions(font)
             {
-                //WrappingLength = textShape.ComputeLength(),
+                WrappingLength = textShape.ComputeLength(),
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Left,
-                TextAlignment = TextAlignment.Center,
-                TextDirection = TextDirection.LeftToRight,
-                
+                TextAlignment = TextAlignment.Center
             };
-            DrawingOptions options = new()
-            {
-                GraphicsOptions = new()
-                {
-                    ColorBlendingMode = PixelColorBlendingMode.Multiply
-                }
-            };
-            IPen pen = Pens.Solid(color, 1);
+            //Console.WriteLine($"Text length: {textShape.ComputeLength()}");
+            var options = new DrawingOptions { GraphicsOptions = new GraphicsOptions { Antialias = true } };
+            var pen = Pens.Solid(color, 1);
             img.Mutate(x => x.Draw(color, 1, pathBuilder.Build()));
-            //img.Mutate(x => x.Draw(Color.Yellow, 1, new PathBuilder().AddSegment(textSegment).Build()));
+            //img.Mutate(x => x.Draw(Color.Yellow, 1, textShape));
+            //img.Mutate(x => x.Draw(Color.Yellow, 1, new Polygon(new LinearLineSegment(new PointF(imageSize/2, 0), new PointF(imageSize/2, imageSize)))));
 
-            IPathCollection glyphs = TextBuilder.GenerateGlyphs(text, textShape, textOptions);
+            var glyphs = TextBuilder.GenerateGlyphs(text, textShape, textOptions);
+            //img.Mutate(x => x.Draw(Color.Black, fontSize + 1, textBackgroundShape));
             img.Mutate(i => i.Fill(color, glyphs));
             return getBytes(img, format);
         }
@@ -127,13 +137,40 @@ namespace MosaicLibrary
             return image.ToBase64String(JpegFormat.Instance);
         }
 
+        public Image<Rgba32> GenerateTitleImage(string title, int width, int height)
+        {
+            var padding = 100;
+            var imgSize = new SizeF(width, height);
+            var outputImage = new Image<Rgba32>(width, height);
+            // Measure the text size
+            Font font = Font.CreateFont(10); // for scaling water mark size is largely ignored.
+            FontRectangle size = TextMeasurer.Measure(title, new TextOptions(font));
+
+            // Find out how much we need to scale the text to fill the space (up or down)
+            float scalingFactor = Math.Min((imgSize.Width - padding) / size.Width, (imgSize.Height - padding) / size.Height);
+
+            // Create a new font
+            Font scaledFont = new Font(font, scalingFactor * font.Size);
+
+            var center = new PointF(imgSize.Width / 2, imgSize.Height / 2);
+            var textOptions = new TextOptions(scaledFont)
+            {
+                Origin = center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+            };
+            outputImage.Mutate(img => img.Fill(Color.Black));
+            outputImage.Mutate(img => img.DrawText(textOptions, title, Color.DarkRed));
+            return outputImage;
+        }
+
         private Image<Rgba32> generate(List<byte[]> images, int imageSize, int cols)
         {
             if (images.Count < cols) throw new ArgumentException("Image list too small!");
             var imageCount = Math.Max(images.Count, cols);
-            var rows = (int)Math.Floor((double)imageCount / cols);
+            var rows = (int)Math.Ceiling((double)imageCount / cols);
             var imageWidth = imageSize * cols;
-            var imageHeight = imageSize * rows;
+            var imageHeight = imageSize * (rows + 1);
 
             var stopWatch = new Stopwatch();
             stopWatch.Start();
@@ -142,15 +179,30 @@ namespace MosaicLibrary
             var dx = 0;
             var dy = 0;
 
+            var titleImage = GenerateTitleImage("Messier Catalogue", imageWidth, imageSize);
+            outputImage.Mutate(o => o
+                        .DrawImage(titleImage, new Point(dx, dy), 1f)
+                    );
+
+            dy = imageSize;
 
             foreach (var r in Enumerable.Range(0, rows))
             {
                 foreach (var c in Enumerable.Range(0, cols))
                 {
-                    Image<Rgba32> img1 = Image.Load<Rgba32>(images[c]);
-                    img1.Mutate(o => o.Resize(new Size(imageSize, imageSize)));
+                    var idx = c + (r * cols);
+                    Image<Rgba32> img;
+                    if (idx < images.Count)
+                    {
+                        img = Image.Load<Rgba32>(images[idx]);
+                    } else
+                    {
+                        img = new Image<Rgba32>(imageSize, imageSize);
+                        img.Mutate(i => i.Fill(Color.Black));
+                    }
+                    
                     outputImage.Mutate(o => o
-                        .DrawImage(img1, new Point(dx, dy), 1f)
+                        .DrawImage(img, new Point(dx, dy), 1f)
                     );
                     dx += imageSize;
                 }

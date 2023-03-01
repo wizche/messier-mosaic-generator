@@ -39,6 +39,11 @@
                 <span>Generate</span>
             }
         </button>
+        @if(ErrorMessage != string.Empty){
+            <div class="alert alert-danger" role="alert">
+                @ErrorMessage
+            </div>
+        }
     </form>
 </div>
 <hr/>
@@ -49,13 +54,14 @@
 }
 
 @code {
-    public int ImageSize = 100;
+    public int ImageSize = 600;
     public int ColumnsCount = 5;
     public int RowCounts = 0;
     public int ImageWidth = 0;
     public int ImageHeight = 0;
     public bool IsGenerating = false;
     public string PreviewGeneratedImageSrc { get; set; } = string.Empty;
+    public string ErrorMessage { get; set; } = string.Empty;
 
     public void RecomputeImageSize()
     {
@@ -76,6 +82,7 @@
         }
         RecomputeImageSize();
     }
+
     public void ColumnsChanged(ChangeEventArgs changeEvent)
     {
         var succeeed = int.TryParse((string)changeEvent.Value, out ColumnsCount);
@@ -89,18 +96,22 @@
     public async void GenerateImage()
     {
         IsGenerating = true;
+        ErrorMessage = "";
         StateHasChanged();
         var results = await DbManager.GetRecords<MessierObjectEntry>(DbConfig.StoreName);
-        if (results.Count < 2) return;
-        var obj1 = results[0];
-        var obj2 = results[1];
-        PreviewGeneratedImageSrc = MosaicService.GenerateAsBase64(new List<byte[]> { obj1.Image, obj2.Image }, ImageSize, ColumnsCount);
+        if (results.Count < ColumnsCount) {
+            ErrorMessage = "Not enough images to create grid!"; 
+        } else {
+            var images = results.Select(r => MosaicService.GenerateAnnotatedImage(r.Image!, r.ImagePictureDescription, ImageSize)).ToList();
+            PreviewGeneratedImageSrc = MosaicService.GenerateAsBase64(images!, ImageSize, ColumnsCount);
+        }
         IsGenerating = false;
         StateHasChanged();
     }
 
     protected override void OnInitialized()
     {
+        ErrorMessage = "";
         RecomputeImageSize();
     }
 

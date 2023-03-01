@@ -8,8 +8,10 @@
 <div class="card mb-2 h-100">
     <label for="@($"filePicker{Object?.Name}")">
         <div class="item">
-            <img class="card-img-top" src="@ImageDataURL" alt="Card image cap">
-            @if(IsGenerating){
+            <div class="image">
+                <img class="img img-responsive full-width card-img-top" src="@ImageDataURL" alt="Card image cap">
+            </div> 
+            @if(IsGenerating){ 
                 <div class="overlay">
                     <div class="spinner-border text-primary" role="status">
                         <span class="sr-only"></span>
@@ -41,7 +43,7 @@
     public EventCallback<long?> OnItemAdded { get; set; }
     [Parameter]
     public EventCallback<long?> OnItemDeleted { get; set; }
-    
+
     public bool Loaded { get; set; } = false;
     public bool IsGenerating { get; set; } = false;
 
@@ -50,7 +52,7 @@
     public async void Delete()
     {
         Loaded = false;
-        ImageDataURL = Object?.PictureUrl;
+        ImageDataURL = Object?.PictureUrl ?? "images/missing.png";
         await DbManager.DeleteRecord(DbConfig.StoreName, ObjectId);
         await OnItemDeleted.InvokeAsync(ObjectId);
     }
@@ -63,7 +65,7 @@
         await imagePreview.OpenReadStream(10 * 1024 * 1024).CopyToAsync(ms);
         var imagePreviewBytes = ms.ToArray();
         Console.WriteLine($"Generating preview");
-        imagePreviewBytes = MosaicService.GeneratePreview(imagePreviewBytes, $"{Object?.GetTitle()}");
+        imagePreviewBytes = MosaicService.GenerateAnnotatedImage(imagePreviewBytes, $"{Object?.GetPictureDescription()}", 300);
         var imagesrc = Convert.ToBase64String(imagePreviewBytes);
         ImageDataURL = string.Format($"data:{e.File.ContentType};base64,{imagesrc}");
         Console.WriteLine($"Saved {ImageDataURL.Length} bytes preview");
@@ -86,7 +88,8 @@
                         Id = ObjectId,
                         Image = imageBytes,
                         Preview = imagePreviewBytes,
-                        ContentType = e.File.ContentType
+                        ContentType = e.File.ContentType,
+                        ImagePictureDescription = Object?.GetPictureDescription() ?? "n/a"
                     }
                 };
             await DbManager.AddRecord(newRecord);
@@ -115,7 +118,7 @@
         if (current == null) {
             ImageDataURL = Object.PictureUrl;
         } else {
-            var imagesrc = Convert.ToBase64String(current.Preview);
+            var imagesrc = Convert.ToBase64String(current.Preview!);
             ImageDataURL = string.Format($"data:{current.ContentType};base64,{imagesrc}");
             Loaded = true;
         }

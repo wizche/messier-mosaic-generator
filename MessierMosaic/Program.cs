@@ -14,7 +14,7 @@ var httpClient = new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.
 builder.Services.AddSingleton(sp => httpClient);
 builder.Services.AddBlazoredModal();
 
-var stream = await httpClient.GetStreamAsync("/fonts/roboto.ttf");
+var stream = await httpClient.GetStreamAsync("/fonts/roboto-mono.ttf");
 
 builder.Services.AddScoped<MosaicService>(s =>
 {

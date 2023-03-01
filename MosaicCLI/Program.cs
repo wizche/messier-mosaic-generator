@@ -1,168 +1,39 @@
 ﻿
+using MessierMosaic.ViewModels;
 using MosaicLibrary;
-
-//var service = new MosaicService();
-//var comet = @"C:\Users\sergi\Downloads\comet.png";
-//service.Draw("C/2022 E3 - Comet");
-
+using SixLabors.ImageSharp;
+using System.Text.Json;
 /*
-var paths = new string[] {
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M34_eVscope-20200423-201938.png",
-@"C:\Users\sergi\Documents\MessierMarathon\M35_eVscope-20200423-204407.png"};
-service.GenerateFromPathsAndSave(new List<string>(paths), 300, 5, "test.png");
+var stream = File.OpenRead(@"C:\Users\sergi\source\repos\MessierMosaic\MessierMosaic\wwwroot\fonts\roboto-mono.ttf");
+var service = new MosaicService(stream);
+var comet = @"C:\Users\sergi\Downloads\comet.png";
+var bytes = File.ReadAllBytes(comet);
+var result = service.GenerateAnnotatedImage(bytes, "M2", 600);
+File.WriteAllBytes(@"C:\Users\sergi\source\repos\MessierMosaic\MosaicCLI\bin\Debug\net7.0\Output\test.png", result);
 */
+
+var stream = File.OpenRead(@"C:\Users\sergi\source\repos\MessierMosaic\MessierMosaic\wwwroot\fonts\roboto-mono.ttf");
+var service = new MosaicService(stream);
+var ImageSize = 600;
+var ColumnsCount = 10;
+var testPath = @"C:\Users\sergi\Downloads\comet.png";
+var jsonString = File.ReadAllText(@"C:\Users\sergi\source\repos\MessierMosaic\MessierMosaic\wwwroot\data\messier.json");
+var MessierObjects = JsonSerializer.Deserialize<MessierObject[]>(jsonString)!;
+var imageBytes = File.ReadAllBytes(testPath);
+var httpClient = new HttpClient();
+httpClient.DefaultRequestHeaders.Add("User-Agent", "Image Crawler");
+
+var images = new List<byte[]>();
+foreach (var id in Enumerable.Range(1, 110))
+{
+    Console.WriteLine($"Processing {id}");
+    var obj = MessierObjects.Where(o => o.Name == $"M{id}").First();
+    var original = await httpClient.GetAsync(obj.PictureUrl);
+    var imgBytes = await original.Content.ReadAsByteArrayAsync();
+    var image = service.GenerateAnnotatedImage(imgBytes, obj.GetPictureDescription(), ImageSize);
+    images.Add(image);
+}
+service.GenerateAndSave(images, ImageSize, ColumnsCount, "Output/test.png");
+
+// service.GenerateTitleImage("Messier Catalogue", ImageSize*ColumnsCount, ImageSize)
+//    .SaveAsPng("Output/title.png");

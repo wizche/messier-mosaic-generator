@@ -26,5 +26,16 @@ namespace MessierMosaic.ViewModels
             }
             return title;
         }
+
+        public string GetPictureDescription()
+        {
+            var description = GetTitle();
+            if (description.Length <= 3)
+            {
+                description += " - ";
+                description += Type;
+            }
+            return description;
+        }
     }
 }
