@@ -26,11 +26,11 @@ namespace MosaicLibrary
         {
             Font = SystemFonts.Families.First();
         }
-        byte[]  getBytes(Image image, IImageFormat format)
+        byte[]  getBytes(Image image)
         {
             using (var ms = new MemoryStream())
             {
-                image.Save(ms, format);
+                image.Save(ms, image.Metadata.DecodedImageFormat);
                 return ms.ToArray();
             }
         }
@@ -50,8 +50,8 @@ namespace MosaicLibrary
             var radius = imageSize / 2;
             var center = new PointF(radius, radius);
 
-            IImageFormat format;
-            var img = Image<Rgba32>.Load(input, out format);
+            var img = Image<Rgba32>.Load(input);
+          
             img.Mutate(o => o.Resize(new ResizeOptions
             {
                 Mode = ResizeMode.Crop,
@@ -91,7 +91,7 @@ namespace MosaicLibrary
             var glyphs = TextBuilder.GenerateGlyphs(text, textShape, textOptions);
             //img.Mutate(x => x.Draw(Color.Black, fontSize + 1, textBackgroundShape));
             img.Mutate(i => i.Fill(color, glyphs));
-            return getBytes(img, format);
+            return getBytes(img);
         }
 
         public void SaveImageWithPath(IPathCollection collection, IPath shape, params string[] path)
@@ -121,7 +121,7 @@ namespace MosaicLibrary
 
         public void GenerateFromPathsAndSave(List<string> imagePaths, int imageSize, int cols, string outputFile)
         {
-            var images = imagePaths.Select(p => getBytes(Image.Load<Rgba32>(p), JpegFormat.Instance)).ToList();
+            var images = imagePaths.Select(p => getBytes(Image.Load<Rgba32>(p))).ToList();
             var image = generate(images, imageSize, cols);
             image.Save(outputFile);
         }
@@ -140,7 +140,7 @@ namespace MosaicLibrary
         public async Task<byte[]> Generate(List<byte[]> images, int imageSize, int cols)
         {
             var image = generate(images, imageSize, cols);
-            return getBytes(image, JpegFormat.Instance);
+            return getBytes(image);
         }
 
         public Image<Rgba32> GenerateTitleImage(string title, int width, int height)
