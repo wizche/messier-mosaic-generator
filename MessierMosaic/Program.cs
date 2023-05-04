@@ -16,7 +16,7 @@ builder.Services.AddBlazoredModal();
 
 var stream = await httpClient.GetStreamAsync("/fonts/roboto-mono.ttf");
 
-builder.Services.AddScoped<MosaicService>(s =>
+builder.Services.AddScoped(s =>
 {
     var ms = new MosaicService(stream);
     return ms;

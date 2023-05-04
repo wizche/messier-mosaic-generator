@@ -1,7 +1,4 @@
-﻿using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Formats.Jpeg;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
+﻿using SixLabors.ImageSharp.Formats.Jpeg;
 
 using SixLabors.Fonts;
 using SixLabors.ImageSharp.Drawing;
@@ -9,7 +6,6 @@ using SixLabors.ImageSharp.Drawing.Processing;
 using IODirectory = System.IO.Directory;
 using IOPath = System.IO.Path;
 using System.Diagnostics;
-using SixLabors.ImageSharp.Formats;
 
 namespace MosaicLibrary
 {
@@ -35,22 +31,62 @@ namespace MosaicLibrary
             }
         }
 
+        public BestParams generatePath(int fontSize, int imageSize, string text)
+        {
+            while (true) { 
+                Font font = Font.CreateFont(fontSize, FontStyle.Regular);
+                var radius = imageSize / 2;
+                var center = new PointF(radius, radius);
+                var border = fontSize;
+
+                // Find the smallest curve encompassing the whole text
+                var textSweepAngle = FindLowestSweepAngle(text, font, new SizeF(radius - fontSize / 2 - border, radius - fontSize / 2 - border));
+
+                var fullSweepAngle = 100;
+                var gapSweepAngle = (fullSweepAngle - textSweepAngle) / 2;
+                var textStartAngle = -220 - gapSweepAngle;
+
+                var textSegment = new ArcLineSegment(center, new SizeF(radius - fontSize / 2 - border, radius - fontSize / 2 - border), 0, textStartAngle, -textSweepAngle);
+
+                IPath textShape = new Polygon(textSegment);
+                TextOptions textOptions = new(font)
+                {
+                    WrappingLength = textShape.ComputeLength(),
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    TextAlignment = TextAlignment.Start,
+                    TextDirection = TextDirection.LeftToRight
+                };
+                try
+                {
+                    IPathCollection glyphs = TextBuilder.GenerateGlyphs(text, textShape, textOptions);
+                    return new BestParams{
+                        FontSize = fontSize,
+                        TextGlyphs = glyphs
+                    };
+
+                } catch(InvalidOperationException ex)
+                {
+                    // when trying to fit a too big text this will raise an invalid operation, so we scale down and retry
+                    fontSize -= 1;
+                    continue;
+                }
+            }
+        }
+
+        public struct BestParams
+        {
+            public int FontSize;
+            public IPathCollection TextGlyphs;
+        }
+
         public async Task<byte[]> GenerateAnnotatedImage(byte[] input, string text, int imageSize)
         {
-            if(text.Length > 26)
+            if (text.Length > 25)
             {
-                text = text.Substring(0, 26);
+                text = text.Substring(0, 25);
             }
-            var pad = new String(' ', (13 - (text.Length/2)));
-            text = pad + text;
-            var fontSize = (int)(imageSize / 20.20);
-            var border = fontSize;
-            var color = Color.ParseHex("#808080"); 
-            var font = Font.CreateFont(fontSize, FontStyle.Regular);
-            var radius = imageSize / 2;
-            var center = new PointF(radius, radius);
-
-            var img = Image<Rgba32>.Load(input);
+            var img = Image.Load(input);
           
             img.Mutate(o => o.Resize(new ResizeOptions
             {
@@ -58,40 +94,60 @@ namespace MosaicLibrary
                 Position = AnchorPositionMode.Center,
                 Size = new Size(imageSize, imageSize)
             }));
-            var topSegment = new ArcLineSegment(center, new SizeF(radius-border, radius-border), 0, -215, 255);
-            var pathBuilder = new PathBuilder();
-            pathBuilder.AddSegment(topSegment);
 
-            //var textSegment = new ArcLineSegment(center, new SizeF(radius- fontSize/2 - border, radius- fontSize/2-border), 0, 220, 100);
-            var textPathBuilder = new PathBuilder();
-            textPathBuilder.AddArc(center, radius - (fontSize/2) - border, radius - (fontSize/2) - border, 0, -215, -105);
-            //textPathBuilder.AddLine(new PointF(10, 150), new PointF(290, 150));
-            var textShape = textPathBuilder.Build();
+            var fontSize = (int)(imageSize / 18.00);
+            var color = Color.ParseHex("#808080");
 
-            var textBackgroundPathBuilder = new PathBuilder();
-            textBackgroundPathBuilder.AddArc(center, radius - border, radius - (fontSize/2) - border, 0, -215, -105);
-            var textBackgroundShape = textBackgroundPathBuilder.Build();
+            var radius = imageSize / 2;
+            var center = new PointF(radius, radius);
 
-            //var textSegment = new LinearLineSegment(new PointF(50, 150), new PointF(250, 150));
-            //IPath textShape = new Polygon(textSegment);
-            var textOptions = new TextOptions(font)
-            {
-                WrappingLength = textShape.ComputeLength(),
-                VerticalAlignment = VerticalAlignment.Top,
-                HorizontalAlignment = HorizontalAlignment.Left,
-                TextAlignment = TextAlignment.Center
-            };
-            //Console.WriteLine($"Text length: {textShape.ComputeLength()}");
-            var options = new DrawingOptions { GraphicsOptions = new GraphicsOptions { Antialias = true } };
-            var pen = Pens.Solid(color, 1);
-            img.Mutate(x => x.Draw(color, 1, pathBuilder.Build()));
-            //img.Mutate(x => x.Draw(Color.Yellow, 1, textShape));
-            //img.Mutate(x => x.Draw(Color.Yellow, 1, new Polygon(new LinearLineSegment(new PointF(imageSize/2, 0), new PointF(imageSize/2, imageSize)))));
-
-            var glyphs = TextBuilder.GenerateGlyphs(text, textShape, textOptions);
-            //img.Mutate(x => x.Draw(Color.Black, fontSize + 1, textBackgroundShape));
+            var bestParams = generatePath(fontSize, imageSize, text);
+            IPathCollection glyphs = bestParams.TextGlyphs;
             img.Mutate(i => i.Fill(color, glyphs));
+
+            var border = bestParams.FontSize;
+            var topSegment = new ArcLineSegment(center, new SizeF(radius - border, radius - border), 0, -220, 260);
+            var bottomSegment = new ArcLineSegment(center, new SizeF(radius - fontSize / 2 - border, radius - fontSize / 2 - border), 0, -220, -100);
+            img.Mutate(x => x.Draw(color, 2, new PathBuilder().AddSegment(topSegment).Build()));
+            img.Mutate(x => x.Draw(color, 2, new PathBuilder().AddSegment(bottomSegment).Build()));
+
             return getBytes(img);
+        }
+
+
+        private float FindLowestSweepAngle(string text, Font font, SizeF radius)
+        {
+            var low = 0.1f;
+            var high = 359.9f;
+            var step = 0.1f;
+
+            while (low < high)
+            {
+                var mid = (low + high) / 2;
+                var arcLineSegment = new ArcLineSegment(PointF.Empty, radius, 0, 0, mid);
+                var polygon = new Polygon(arcLineSegment);
+
+                TextOptions textOptions = new(font)
+                {
+                    WrappingLength = polygon.ComputeLength(),
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    TextAlignment = TextAlignment.Start,
+                    TextDirection = TextDirection.LeftToRight
+                };
+
+                try
+                {
+                    TextBuilder.GenerateGlyphs(text, polygon, textOptions);
+                    high = mid - step; // Curve is too big. Keep finding a smaller one
+                }
+                catch // InvalidOperationException: Should always reach a point along the path
+                {
+                    low = mid + step; // Curve is too small to hold the whole text
+                }
+            }
+
+            return low;
         }
 
         public void SaveImageWithPath(IPathCollection collection, IPath shape, params string[] path)
@@ -168,7 +224,7 @@ namespace MosaicLibrary
             outputImage.Mutate(img => img.Fill(Color.Black));
             outputImage.Mutate(img => img.DrawText(textOptions, title, Color.DarkRed));
             return outputImage;
-        }
+        }       
 
         private Image<Rgba32> generate(List<byte[]> images, int imageSize, int cols)
         {
@@ -219,5 +275,65 @@ namespace MosaicLibrary
             }
             return outputImage;
         }
+
+        public void DrawTest(string text)
+        {
+            var imageSize = 600;
+            if (text.Length > 28)
+            {
+                text = text.Substring(0, 28);
+            }
+            var fontSize = 17;
+            var border = 10;
+            var color = Color.ParseHex("#808080");
+            Font font = Font.CreateFont(fontSize, FontStyle.Regular);
+            var radius = imageSize / 2;
+            var center = new PointF(radius, radius);
+
+            var img = Image<Rgba32>.Load(@"C:\Users\sergi\Documents\repos\MessierMosaic\MessierMosaic\wwwroot\images\missing.png");
+            img.Mutate(o => o.Resize(new Size(imageSize, imageSize)));
+            var topSegment = new ArcLineSegment(center, new SizeF(radius - border, radius - border), 0, -220, 260);
+            PathBuilder pathBuilder = new PathBuilder();
+            pathBuilder.AddSegment(topSegment);
+
+            var bottomSegment = new ArcLineSegment(center, new SizeF(radius - fontSize / 2 - border, radius - fontSize / 2 - border), 0, -220, -100);
+
+            // Find the smallest curve encompassing the whole text
+            var textSweepAngle = FindLowestSweepAngle(text, font, new SizeF(radius - fontSize / 2 - border, radius - fontSize / 2 - border));
+
+            var fullSweepAngle = 100;
+            var gapSweepAngle = (fullSweepAngle - textSweepAngle) / 2;
+            var textStartAngle = -220 - gapSweepAngle;
+
+            var textSegment = new ArcLineSegment(center, new SizeF(radius - fontSize / 2 - border, radius - fontSize / 2 - border), 0, textStartAngle, -textSweepAngle);
+
+            IPath textShape = new Polygon(textSegment);
+            TextOptions textOptions = new(font)
+            {
+                WrappingLength = textShape.ComputeLength(),
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Left,
+                TextAlignment = TextAlignment.Start,
+                TextDirection = TextDirection.LeftToRight
+            };
+            DrawingOptions options = new()
+            {
+                GraphicsOptions = new()
+                {
+                    ColorBlendingMode = PixelColorBlendingMode.Multiply
+                }
+            };
+            img.Mutate(x => x.Draw(color, 2, pathBuilder.Build()));
+            img.Mutate(x => x.Draw(color, 2, new PathBuilder().AddSegment(bottomSegment).Build()));
+
+            IPathCollection glyphs = TextBuilder.GenerateGlyphs(text, textShape, textOptions);
+            img.Mutate(i => i.Fill(color, glyphs));
+            string fullPath = IOPath.GetFullPath(IOPath.Combine("Output", IOPath.Combine("test.png")));
+            IODirectory.CreateDirectory(IOPath.GetDirectoryName(fullPath));
+            img.Save(fullPath);
+            Console.WriteLine($"Saved to {fullPath}");
+        }
+
     }
+
 }
