@@ -107,9 +107,9 @@ namespace MosaicLibrary
 
             var border = bestParams.FontSize;
             var topSegment = new ArcLineSegment(center, new SizeF(radius - border, radius - border), 0, -220, 260);
-            var bottomSegment = new ArcLineSegment(center, new SizeF(radius - fontSize / 2 - border, radius - fontSize / 2 - border), 0, -220, -100);
             img.Mutate(x => x.Draw(color, 2, new PathBuilder().AddSegment(topSegment).Build()));
-            img.Mutate(x => x.Draw(color, 2, new PathBuilder().AddSegment(bottomSegment).Build()));
+            //var bottomSegment = new ArcLineSegment(center, new SizeF(radius - fontSize / 2 - border, radius - fontSize / 2 - border), 0, -220, -100);
+            //img.Mutate(x => x.Draw(color, 2, new PathBuilder().AddSegment(bottomSegment).Build()));
 
             return getBytes(img);
         }
