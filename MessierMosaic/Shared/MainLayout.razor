@@ -2,22 +2,34 @@
 
 <div class="page">
     <main>
-        <div class="top-row justify-content-between">
-            <div>
-                <h4>Messier Catalogue Mosaic Generator</h4>
-            </div>
-            <div>
-                <div class="float-end">
-                    <a href="https://github.com/wizche" target="_blank">About</a>
+        <nav class="top-row navbar navbar-dark navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" style="margin-left: 0px !important" href="#">
+                    <img src="/favicon.ico" alt="Logo" height="24" width="24" class="d-inline-block align-text-top">
+                    Messier Catalogue Mosaic Generator
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <NavLink class="nav-link" aria-current="page" href="#">Home</NavLink>
+                        </li>
+                        <li class="nav-item">
+                            <NavLink class="nav-link" href="/about">About</NavLink>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/wizche/messier-mosaic-generator" target="_blank">Source Code</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="float-end">
-                    <a href="images/example_mosaic.png" target="_blank">See example</a>
-                </div>
             </div>
-        </div>
-
-        <article class="content px-4">
-            @Body
+        </nav>
+       <article class="content">
+            <div class="container-fluid">
+                @Body
+            </div>
         </article>
     </main>
 </div>

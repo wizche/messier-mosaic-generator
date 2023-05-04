@@ -5,9 +5,9 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessierMosaic", "MessierMosaic\MessierMosaic.csproj", "{5303E957-C163-4BCD-84FA-DE25845F792C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MosaicLibrary", "MosaicLibrary\MosaicLibrary.csproj", "{F3D317A7-74CB-4847-B65D-9C1D83573908}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MosaicLibrary", "MosaicLibrary\MosaicLibrary.csproj", "{F3D317A7-74CB-4847-B65D-9C1D83573908}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MosaicCLI", "MosaicCLI\MosaicCLI.csproj", "{17685BD1-B8FD-46BE-B07B-2A3F5F14F25A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MosaicCLI", "MosaicCLI\MosaicCLI.csproj", "{17685BD1-B8FD-46BE-B07B-2A3F5F14F25A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

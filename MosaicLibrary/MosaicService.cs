@@ -6,6 +6,7 @@ using SixLabors.ImageSharp.Drawing.Processing;
 using IODirectory = System.IO.Directory;
 using IOPath = System.IO.Path;
 using System.Diagnostics;
+using Microsoft.VisualBasic;
 
 namespace MosaicLibrary
 {
@@ -26,7 +27,14 @@ namespace MosaicLibrary
         {
             using (var ms = new MemoryStream())
             {
-                image.Save(ms, image.Metadata.DecodedImageFormat);
+                if(image.Metadata.DecodedImageFormat != null)
+                {
+                    image.Save(ms, image.Metadata.DecodedImageFormat);
+
+                } else
+                {
+                    image.SaveAsPng(ms);
+                }
                 return ms.ToArray();
             }
         }
